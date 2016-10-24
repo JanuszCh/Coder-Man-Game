@@ -1,66 +1,60 @@
 @import "../modules/variables";
 
-body{
-    // background-color: $backgroundColor;
+body {
+    background-color: $backgroundColor;
     // background-color: #0b1221;
     // background-color: #0b1431;
-}
+    #boardFront {
+        width: $boardSize;
+        height: 100vh;
+        margin: 0 auto;
+        padding: 35px 0;
+        // display: none;
+        div {
+            width: $fieldSize;
+            height: $fieldSize;
+            border: 1px solid black;
+            float: left;
+        }
 
-#boardFront {
-    width: $boardSize;
-    height: 100vh;
-    margin: 0px auto;
-    padding: 35px 0;
-    // display: none;
+        div.wall {
+            background-color: gray;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
 
-    div {
-        width: $fieldSize;
-        height: $fieldSize;
-        border: 1px solid black;
-        float: left;
-        // background-color: white;
+        h3.score {
+            z-index: 2;
+            line-height: $boardSize;
+            font-size: 40px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            width: 200px;
+            color: blue;
+            font-weight: bolder;
+        }
     }
 
-    div.wall {
-        background-color: gray;
-        // background-image: url('images/wall4.png');
+    .furry {
+        background-image: url('images/furry.png');
         background-repeat: no-repeat;
         background-size: contain;
-
     }
 
-    h3.score {
-        z-index: 2;
-        line-height: $boardSize;
-        font-size: 40px;
-        position: absolute;
-        left: 0;
-        right: 0;
-        margin-left: auto;
-        margin-right: auto;
-        width: 200px;
-        color: blue;
-        font-weight: bolder;
+    .coin {
+        background-image: url('images/coin.png');
+        background-repeat: no-repeat;
+        background-size: 40px;
+        background-position: center;
     }
-}
 
-.furry {
-    background-image: url('images/furry.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.coin {
-    background-image: url('images/coin.png');
-    background-repeat: no-repeat;
-    background-size: 40px;
-    background-position: center;
-
-}
-
-.speed {
-    background-image: url('images/speed.png');
-    background-repeat: no-repeat;
-    background-size: 40px;
-    background-position: center;
+    .speed {
+        background-image: url('images/speed.png');
+        background-repeat: no-repeat;
+        background-size: 40px;
+        background-position: center;
+    }
 }

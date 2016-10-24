@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
 
+//wyciagnac wszystki zmienne z funckji na gore - zwlaszcza te ktore odpytuja DOM
     //tempFurry / index zamienic na indexPlayer
     // Furry zamienic na PLayer
     var index = 60;
@@ -23,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
             var newTd2 = $('<td>');
             var newTr = $('<tr>');
             newTd2.append(scores[indexTable][1]);
-            newTd.append(scores[indexTable][0]);            
+            newTd.append(scores[indexTable][0]);
             newTr.append(newTd2);
             newTr.append(newTd);
             screenGameOver.append(newTr);
@@ -135,6 +136,17 @@ document.addEventListener("DOMContentLoaded", function() {
         // }
     };
 
+    function showCoin() {
+        index2 = gg.coin.x + gg.coin.y * 10;
+        for (var i = 0; i < gg.board.length; i++) {
+            if (! gg.board[i].classList.contains('wall') && i!=60) {
+                gg.board[i].classList.add('coin');
+            }
+        }
+    }
+
+
+
     Game.prototype.showFurry = function() {
         for (var i = 0; i < this.board.length; i++) {
             this.board[i].classList.remove('furry');
@@ -173,10 +185,12 @@ document.addEventListener("DOMContentLoaded", function() {
     // Przeskakuje do nastepnego indexu poniewaz najpierw go aktualizuje potem sprawdza <?>
     Game.prototype.gameOver = function() {
         var tempFurry = index;
-
         var tempWall = 0;
+        var playerScoreInfo = $("p.playerScoreInfo");
+        var inputVal = input.val();
 
-        if (this.board[tempFurry].classList.contains('wall')) {
+        if ($(this.board[tempFurry]).hasClass('wall')) {
+            playerScoreInfo.html("Gratulacje <span class='playerInfo'>" + inputVal + "!</span><br>Twoj wynik to: <span class='playerInfo'> "+ gg.score + "!</span>" );
             alert('game over');
             clearInterval(start);
             console.log('game over');
@@ -201,6 +215,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     var gg = new Game();
+        showCoin();
     // gg.position(1, 1);
     // gg.positionCoin();
     // gg.showFurry();

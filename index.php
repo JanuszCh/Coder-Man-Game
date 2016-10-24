@@ -35,6 +35,7 @@
                         }  ?>" id="name" placeholder="Twoje imie">
                 </form>
                 <div class="avatars">
+                    wybierz avatar
                     <div style="height:auto;">
                         <img src="images/furry.png" />
                         <img src="images/furry.png" />
@@ -88,103 +89,103 @@
         <div class="wall">10</div>
         <div class="wall">11</div>
         <div class="wall">12</div>
-        <div class="coin">13</div>
-        <div class="coin">14</div>
+        <div class="">13</div>
+        <div class="">14</div>
         <div class="wall">15</div>
-        <div class="coin">16</div>
-        <div class="coin">17</div>
-        <div class="coin">18</div>
+        <div class="">16</div>
+        <div class="">17</div>
+        <div class="">18</div>
         <div class="wall">19</div>
-        <div class="coin">20</div>
-        <div class="coin">21</div>
+        <div class="">20</div>
+        <div class="">21</div>
         <div class="wall">22</div>
         <div class="wall">23</div>
         <div class="wall">24</div>
-        <div class="coin">25</div>
+        <div class="">25</div>
         <div class="wall">26</div>
-        <div class="coin">27</div>
+        <div class="">27</div>
         <div class="wall">28</div>
         <div class="wall">29</div>
         <div class="wall">30</div>
-        <div class="coin">31</div>
+        <div class="">31</div>
         <div class="wall">32</div>
         <div class="wall">33</div>
         <div class="wall">34</div>
-        <div class="coin">35</div>
-        <div class="coin">36</div>
-        <div class="coin">37</div>
-        <div class="coin">38</div>
-        <div class="coin">39</div>
-        <div class="coin">40</div>
-        <div class="coin">41</div>
-        <div class="coin">42</div>
-        <div class="coin">43</div>
+        <div class="">35</div>
+        <div class="">36</div>
+        <div class="">37</div>
+        <div class="">38</div>
+        <div class="">39</div>
+        <div class="">40</div>
+        <div class="">41</div>
+        <div class="">42</div>
+        <div class="">43</div>
         <div class="wall">44</div>
         <div class="wall">45</div>
-        <div class="coin">46</div>
+        <div class="">46</div>
         <div class="wall">47</div>
-        <div class="coin">48</div>
+        <div class="">48</div>
         <div class="wall">49</div>
         <div class="wall">50</div>
         <div class="wall">51</div>
-        <div class="coin">52</div>
+        <div class="">52</div>
         <div class="wall">53</div>
-        <div class="coin">54</div>
+        <div class="">54</div>
         <div class="wall">55</div>
         <div class="wall">56</div>
-        <div class="coin">57</div>
+        <div class="">57</div>
         <div class="wall">58</div>
-        <div class="coin">59</div>
+        <div class="">59</div>
         <div class="wall">60</div>
-        <div class="coin">61</div>
-        <div class="coin">62</div>
-        <div class="coin">63</div>
-        <div class="coin">64</div>
-        <div class="coin">65</div>
+        <div class="">61</div>
+        <div class="">62</div>
+        <div class="">63</div>
+        <div class="">64</div>
+        <div class="">65</div>
         <div class="wall">66</div>
         <div class="wall">67</div>
-        <div class="coin">68</div>
+        <div class="">68</div>
         <div class="wall">69</div>
-        <div class="coin">70</div>
+        <div class="">70</div>
         <div class="wall">71</div>
         <div class="wall">72</div>
-        <div class="coin">73</div>
+        <div class="">73</div>
         <div class="wall">74</div>
         <div class="wall">75</div>
-        <div class="coin">76</div>
+        <div class="">76</div>
         <div class="wall">77</div>
         <div class="wall">78</div>
-        <div class="coin">79</div>
-        <div class="coin">80</div>
-        <div class="coin">81</div>
-        <div class="coin">82</div>
-        <div class="coin">83</div>
-        <div class="coin">84</div>
+        <div class="">79</div>
+        <div class="">80</div>
+        <div class="">81</div>
+        <div class="">82</div>
+        <div class="">83</div>
+        <div class="">84</div>
         <div class="wall">85</div>
-        <div class="coin">86</div>
-        <div class="coin">87</div>
+        <div class="">86</div>
+        <div class="">87</div>
         <div class="wall">88</div>
         <div class="wall">89</div>
-        <div class="coin">90</div>
+        <div class="">90</div>
         <div class="wall">91</div>
         <div class="wall">92</div>
         <div class="wall">93</div>
-        <div class="coin">94</div>
+        <div class="">94</div>
         <div class="wall">95</div>
         <div class="wall">96</div>
-        <div class="coin">97</div>
+        <div class="">97</div>
         <div class="wall">98</div>
         <div class="wall">99</div>
         <div class="wall">100</div>
-        <div class="coin">101</div>
-        <div class="coin">102</div>
-        <div class="coin">103</div>
+        <div class="">101</div>
+        <div class="">102</div>
+        <div class="">103</div>
         <div class="wall">104</div>
-        <div class="coin">105</div>
-        <div class="coin">106</div>
-        <div class="coin">107</div>
-        <div class="coin">108</div>
-        <div class="coin">109</div>
+        <div class="">105</div>
+        <div class="">106</div>
+        <div class="">107</div>
+        <div class="">108</div>
+        <div class="">109</div>
         <div class="wall">110</div>
         <div class="wall">111</div>
         <div class="wall">112</div>
@@ -207,7 +208,8 @@
             </header>
             <div class="scoreTable">
                 <table id="bestResults">
-                    <tr>                    
+                    <caption>TOP 10</caption>
+                    <tr>
                         <th>
                             Imię
                         </th>
@@ -218,10 +220,14 @@
                 </table>
             </div>
             <div class="scorePlayer">
-                Tutaj będzie wynik gracza
+                <img src="images/furry.png" alt="avatar" />
+                <p class="playerScoreInfo"></p>
             </div>
             <div class="clear"></div>
             <footer>
+                <div id="mainScreenButton">
+                    <span>EKRAN GŁOWNY!</span>
+                </div>
                 <div id="playAgainButton">
                     <span>ZAGRAJ PONOWNIE!</span>
                 </div>

@@ -1,46 +1,45 @@
-#boardFront {
-  width: 90.2vh;
-  height: 100vh;
-  margin: 0px auto;
-  padding: 35px 0; }
-  #boardFront div {
-    width: 8.2vh;
-    height: 8.2vh;
-    border: 1px solid black;
-    float: left; }
-  #boardFront div.wall {
-    background-color: gray;
+body {
+  background-color: #0f182b; }
+  body #boardFront {
+    width: 90.2vh;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 35px 0; }
+    body #boardFront div {
+      width: 8.2vh;
+      height: 8.2vh;
+      border: 1px solid black;
+      float: left; }
+    body #boardFront div.wall {
+      background-color: gray;
+      background-repeat: no-repeat;
+      background-size: contain; }
+    body #boardFront h3.score {
+      z-index: 2;
+      line-height: 90.2vh;
+      font-size: 40px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      width: 200px;
+      color: blue;
+      font-weight: bolder; }
+  body .furry {
+    background-image: url("images/furry.png");
     background-repeat: no-repeat;
     background-size: contain; }
-  #boardFront h3.score {
-    z-index: 2;
-    line-height: 90.2vh;
-    font-size: 40px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    width: 200px;
-    color: blue;
-    font-weight: bolder; }
-
-.furry {
-  background-image: url("images/furry.png");
-  background-repeat: no-repeat;
-  background-size: contain; }
-
-.coin {
-  background-image: url("images/coin.png");
-  background-repeat: no-repeat;
-  background-size: 40px;
-  background-position: center; }
-
-.speed {
-  background-image: url("images/speed.png");
-  background-repeat: no-repeat;
-  background-size: 40px;
-  background-position: center; }
+  body .coin {
+    background-image: url("images/coin.png");
+    background-repeat: no-repeat;
+    background-size: 40px;
+    background-position: center; }
+  body .speed {
+    background-image: url("images/speed.png");
+    background-repeat: no-repeat;
+    background-size: 40px;
+    background-position: center; }
 
 #startGame {
   background-color: #0f182b;
@@ -119,7 +118,8 @@
         height: auto; }
         #startGame div.container div.player div.avatars img {
           max-width: 100%;
-          height: auto; }
+          height: auto;
+          border: 2px solid transparent; }
           #startGame div.container div.player div.avatars img:hover {
             border: 2px solid #48e5f9; }
   #startGame .clear {
@@ -173,9 +173,14 @@
       height: 70%;
       width: 50%;
       padding: 20px;
-      float: left; }
+      float: left;
+      border: 1px solid red; }
+      #gameOver div.container div.scoreTable caption {
+        font-weight: 800;
+        font-size: 30px;
+        text-align: center; }
       #gameOver div.container div.scoreTable #bestResults {
-        height: 100%;
+        height: 90%;
         margin: 0 auto;
         width: 75%;
         vertical-align: middle;
@@ -193,7 +198,17 @@
       height: 70%;
       width: 50%;
       padding: 20px;
-      float: left; }
+      float: left;
+      border: 1px solid red; }
+      #gameOver div.container div.scorePlayer img {
+        margin: 0 auto;
+        display: block; }
+      #gameOver div.container div.scorePlayer p.playerScoreInfo {
+        font-size: 30px;
+        text-align: center; }
+        #gameOver div.container div.scorePlayer p.playerScoreInfo span.playerInfo {
+          font-size: 40px;
+          color: #48e5f9; }
     #gameOver div.container .clear {
       clear: both;
       display: block; }
@@ -204,8 +219,9 @@
       display: flex;
       align-items: center;
       justify-content: center; }
+      #gameOver div.container footer #mainScreenButton,
       #gameOver div.container footer #playAgainButton {
-        width: 50%;
+        width: 45%;
         height: 80%;
         margin: 0 auto;
         border: 2px solid white;
@@ -214,6 +230,7 @@
         display: flex;
         align-items: center;
         justify-content: center; }
+        #gameOver div.container footer #mainScreenButton:hover,
         #gameOver div.container footer #playAgainButton:hover {
           border: 2px solid #48e5f9;
           color: #48e5f9;

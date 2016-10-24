@@ -38,6 +38,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
             ul {
                 list-style-type: square;
             }
@@ -109,9 +110,12 @@
                 // height: auto;
                 max-width: 100%;
                 height: auto;
+
                 img {
                     max-width: 100%;
                     height: auto;
+                    border: 2px solid transparent;
+
                     &:hover {
                         border: 2px solid $mainColor;
                     }
@@ -122,7 +126,7 @@
 
     .clear {
         clear: both;
-        display:block;
+        display: block;
     }
 
     footer {

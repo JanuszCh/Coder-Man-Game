@@ -33,23 +33,31 @@
             width: 50%;
             padding: 20px;
             float: left;
+            border: 1px solid red;
+
+            caption {
+                font-weight: 800;
+                font-size: 30px;
+                text-align: center;
+            }
 
             #bestResults {
-                height: 100%;
+                height: 90%;
                 margin: 0 auto;
                 width: 75%;
                 vertical-align: middle;
                 text-align: center;
+
                 th {
                     font-size: 150%;
                     font-weight: 800;
                     border-bottom: 1px solid $mainColor;
                     vertical-align: middle;
                 }
+
                 td {
                     border-bottom: 1px solid $mainColor;
                     font-size: 100%;
-                    // text-align: center;
                     vertical-align: middle;
                 }
             }
@@ -60,6 +68,22 @@
             width: 50%;
             padding: 20px;
             float: left;
+            border: 1px solid red;
+
+            img {
+                margin: 0 auto;
+                display: block;
+            }
+
+            p.playerScoreInfo {
+                font-size: 30px;
+                text-align: center;
+
+                span.playerInfo {
+                    font-size: 40px;
+                    color: $mainColor;
+                }
+            }
         }
 
         .clear {
@@ -75,8 +99,9 @@
             align-items: center;
             justify-content: center;
 
+            #mainScreenButton,
             #playAgainButton {
-                width: 50%;
+                width: 45%;
                 height: 80%;
                 margin: 0 auto;
                 border: 2px solid white;
