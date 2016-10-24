@@ -3,16 +3,14 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <!-- <meta charset="utf-8"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
     <title>New game</title>
     <link rel="stylesheet" href="css/reset.css" media="screen" title="no title">
     <link rel="stylesheet" href="main.nested.css" media="screen" title="no title">
 </head>
 
 <body>
-    <section id="screenGameOver">
-
-    </section>
 
     <section id="startGame">
         <div class="container">
@@ -37,31 +35,39 @@
                         }  ?>" id="name" placeholder="Twoje imie">
                 </form>
                 <div class="avatars">
-                    <img src="images/furry.png" alt="" width="80" height="80" />
-                    <img src="images/furry.png" alt="" width="80" height="80" />
-                    <img src="images/furry.png" alt="" width="80" height="80" />
-                    <img src="images/furry.png" alt="" width="80" height="80" />
-                    <img src="images/furry.png" alt="" width="80" height="80" />
-                    <img src="images/furry.png" alt="" width="80" height="80" />
-                    <img src="images/furry.png" alt="" width="80" height="80" />
-                    <img src="images/furry.png" alt="" width="80" height="80" />
-                    <img src="images/furry.png" alt="" width="80" height="80" />
-                    <img src="images/furry.png" alt="" width="80" height="80" />
-                    <img src="images/furry.png" alt="" width="80" height="80" />
-                    <img src="images/furry.png" alt="" width="80" height="80" />
-                    <img src="images/furry.png" alt="" width="80" height="80" />
-                    <img src="images/furry.png" alt="" width="80" height="80" />
-                    <img src="images/furry.png" alt="" width="80" height="80" />
-                    <img src="images/furry.png" alt="" width="80" height="80" />
-                    <img src="images/furry.png" alt="" width="80" height="80" />
-                    <img src="images/furry.png" alt="" width="80" height="80" />
-                    <img src="images/furry.png" alt="" width="80" height="80" />
-                    <img src="images/furry.png" alt="" width="80" height="80" />
+                    <div style="height:auto;">
+                        <img src="images/furry.png" />
+                        <img src="images/furry.png" />
+                        <img src="images/furry.png" />
+                        <img src="images/furry.png" />
+                        <img src="images/furry.png" />
+                    </div>
+                    <div style="height:auto;">
+                        <img src="images/furry.png" />
+                        <img src="images/furry.png" />
+                        <img src="images/furry.png" />
+                        <img src="images/furry.png" />
+                        <img src="images/furry.png" />
+                    </div>
+                    <div style="height:auto;">
+                        <img src="images/furry.png" />
+                        <img src="images/furry.png" />
+                        <img src="images/furry.png" />
+                        <img src="images/furry.png" />
+                        <img src="images/furry.png" />
+                    </div>
+                    <div style="height:auto;">
+                        <img src="images/furry.png" />
+                        <img src="images/furry.png" />
+                        <img src="images/furry.png" />
+                        <img src="images/furry.png" />
+                        <img src="images/furry.png" />
+                    </div>
                 </div>
             </div>
             <div class="clear"></div>
             <footer>
-                <div class="startButton">
+                <div id="startButton">
                     <span>START!</span>
                 </div>
             </footer>
@@ -191,6 +197,36 @@
         <div class="wall">119</div>
         <div class="wall">120</div>
         <div class="wall">121</div>
+    </section>
+    <section id="gameOver">
+        <div class="container">
+            <header>
+                <div class="">
+                    GAME OVER!
+                </div>
+            </header>
+            <div class="scoreTable">
+                <table id="bestResults">
+                    <tr>                    
+                        <th>
+                            Imię
+                        </th>
+                        <th>
+                            Wynik
+                        </th>
+                    </tr>
+                </table>
+            </div>
+            <div class="scorePlayer">
+                Tutaj będzie wynik gracza
+            </div>
+            <div class="clear"></div>
+            <footer>
+                <div id="playAgainButton">
+                    <span>ZAGRAJ PONOWNIE!</span>
+                </div>
+            </footer>
+        </div>
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/app.js">

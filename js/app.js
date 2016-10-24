@@ -4,10 +4,10 @@ document.addEventListener("DOMContentLoaded", function() {
     // Furry zamienic na PLayer
     var index = 60;
     var board = $('#boardFront');
-    var screenGameOver = $('#screenGameOver');
+    var screenGameOver = $('#gameOver div.scoreTable #bestResults');
     var input = $('input');
 
-//=====================DZIAŁA!!!======================================
+    //=====================DZIAŁA!!!======================================
     // function randomWall() {
     //     var divs = $('#boardFront div.wall');
     //     var walls = ['wall1.png', 'wall2.png', 'wall3.png', 'wall4.png'];
@@ -17,18 +17,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     function insertContent(scores) {
-        var newTable = $('<table id="tableScore">');
+        // var newTable = $('<table id="bestResults">');
         $.each(scores, function(indexTable, score) {
             var newTd = $('<td>');
             var newTd2 = $('<td>');
             var newTr = $('<tr>');
             newTd2.append(scores[indexTable][1]);
-            newTd.append(scores[indexTable][0]);
+            newTd.append(scores[indexTable][0]);            
             newTr.append(newTd2);
             newTr.append(newTd);
-            newTable.append(newTr);
+            screenGameOver.append(newTr);
         });
-        screenGameOver.append(newTable);
+        // screenGameOver.append(newTr);
     }
 
     function sendScore() {
@@ -87,6 +87,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // var divs = $('#boardFront div');
     //console.log(divs[2].hasClass('jakas'));
 
+    //$(divs[2]).hasClass('jakas')); !!!!!!!!!
+    // divs.eq(2).hasClass('jakas');
+
     var arrayWall = [];
 
 
@@ -100,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         var randomIndex = Math.floor(Math.random() * arrayWall.length);
         divs[arrayWall[randomIndex]].classList.remove('coin');
-        divs[arrayWall[randomIndex]].classList.add('diamond');
+        divs[arrayWall[randomIndex]].classList.add('speed');
     }
     showSpeed();
 
@@ -177,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function() {
             alert('game over');
             clearInterval(start);
             console.log('game over');
-            // sendScore();
+            sendScore();
         }
     };
 

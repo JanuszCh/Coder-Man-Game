@@ -36,15 +36,7 @@
   background-size: 40px;
   background-position: center; }
 
-#tableScore {
-  width: 300px; }
-  #tableScore td {
-    border: 1px solid red; }
-
-.black {
-  background-color: black; }
-
-.diamond {
+.speed {
   background-image: url("images/speed.png");
   background-repeat: no-repeat;
   background-size: 40px;
@@ -71,7 +63,7 @@
       justify-content: center; }
       #startGame div.container header div {
         font-size: 50px;
-        font-weight: bold; }
+        font-weight: 800; }
     #startGame div.container div.manual {
       width: 50%;
       height: 70%;
@@ -123,13 +115,16 @@
           #startGame div.container div.player input:focus:-ms-input-placeholder {
             color: transparent; }
       #startGame div.container div.player div.avatars {
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap; }
-        #startGame div.container div.player div.avatars img:hover {
-          border: 2px solid #48e5f9; }
-  #startGame div.clear {
-    clear: both; }
+        max-width: 100%;
+        height: auto; }
+        #startGame div.container div.player div.avatars img {
+          max-width: 100%;
+          height: auto; }
+          #startGame div.container div.player div.avatars img:hover {
+            border: 2px solid #48e5f9; }
+  #startGame .clear {
+    clear: both;
+    display: block; }
   #startGame footer {
     width: 100%;
     height: 15%;
@@ -137,7 +132,7 @@
     display: flex;
     align-items: center;
     justify-content: center; }
-    #startGame footer div.startButton {
+    #startGame footer #startButton {
       width: 50%;
       height: 80%;
       margin: 0 auto;
@@ -147,8 +142,81 @@
       display: flex;
       align-items: center;
       justify-content: center; }
-      #startGame footer div.startButton:hover {
+      #startGame footer #startButton:hover {
         border: 2px solid #48e5f9;
-        color: #48e5f9; }
+        color: #48e5f9;
+        cursor: pointer; }
+
+#gameOver {
+  background-color: #0f182b;
+  height: 100vh;
+  color: white;
+  padding: 35px 0; }
+  #gameOver div.container {
+    width: 1000px;
+    height: 90vh;
+    border: 5px solid white;
+    border-radius: 40px;
+    margin: 0 auto;
+    padding: 20px; }
+    #gameOver div.container header {
+      width: 100%;
+      height: 15%;
+      border: 1px solid red;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      #gameOver div.container header div {
+        font-size: 50px;
+        font-weight: 800; }
+    #gameOver div.container div.scoreTable {
+      height: 70%;
+      width: 50%;
+      padding: 20px;
+      float: left; }
+      #gameOver div.container div.scoreTable #bestResults {
+        height: 100%;
+        margin: 0 auto;
+        width: 75%;
+        vertical-align: middle;
+        text-align: center; }
+        #gameOver div.container div.scoreTable #bestResults th {
+          font-size: 150%;
+          font-weight: 800;
+          border-bottom: 1px solid #48e5f9;
+          vertical-align: middle; }
+        #gameOver div.container div.scoreTable #bestResults td {
+          border-bottom: 1px solid #48e5f9;
+          font-size: 100%;
+          vertical-align: middle; }
+    #gameOver div.container div.scorePlayer {
+      height: 70%;
+      width: 50%;
+      padding: 20px;
+      float: left; }
+    #gameOver div.container .clear {
+      clear: both;
+      display: block; }
+    #gameOver div.container footer {
+      width: 100%;
+      height: 15%;
+      border: 1px solid red;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      #gameOver div.container footer #playAgainButton {
+        width: 50%;
+        height: 80%;
+        margin: 0 auto;
+        border: 2px solid white;
+        font-size: 40px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        #gameOver div.container footer #playAgainButton:hover {
+          border: 2px solid #48e5f9;
+          color: #48e5f9;
+          cursor: pointer; }
 
 /*# sourceMappingURL=main.nested.css.map */

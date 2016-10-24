@@ -24,7 +24,7 @@
 
             div {
                 font-size: 50px;
-                font-weight: bold;
+                font-weight: 800;
             }
         }
 
@@ -103,11 +103,15 @@
             }
 
             div.avatars {
-                align-items: center;
-                justify-content: center;
-                flex-wrap: wrap;
-
+                // align-items: center;
+                // justify-content: center;
+                // flex-wrap: wrap;
+                // height: auto;
+                max-width: 100%;
+                height: auto;
                 img {
+                    max-width: 100%;
+                    height: auto;
                     &:hover {
                         border: 2px solid $mainColor;
                     }
@@ -116,8 +120,9 @@
         }
     }
 
-    div.clear {
+    .clear {
         clear: both;
+        display:block;
     }
 
     footer {
@@ -128,7 +133,7 @@
         align-items: center;
         justify-content: center;
 
-        div.startButton {
+        #startButton {
             width: 50%;
             height: 80%;
             margin: 0 auto;
@@ -142,6 +147,7 @@
             &:hover {
                 border: 2px solid $mainColor;
                 color: $mainColor;
+                cursor: pointer;
             }
         }
     }
