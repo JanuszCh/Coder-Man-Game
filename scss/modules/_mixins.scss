@@ -1,0 +1,15 @@
+@mixin borderRadius($radius) {
+    border-radius: $radius;
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+    border: 2px solid darken($mainColor, 20%);
+}
+@mixin border($a,$b,$x,$y,$z,$q) {
+     @for $i from $a through $b{
+        div:nth-of-type(#{$i}) {
+            border-width: $x#{'px'} $y#{'px'} $z#{'px'} $q#{'px'};
+            border-color: darken($mainColor, 20%);
+            border-style: solid;            
+        }
+    }
+}
