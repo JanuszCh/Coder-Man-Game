@@ -32,14 +32,9 @@
                             echo($_SESSION['mojeimie']);
                         }  ?>" placeholder="Twoje imie" id="playerName">
                 </form>
+                <p>Wybierz avatar:</p>
                 <div class="avatars">
-                    wybierz avatar
                     <div class="avatarsRow">
-                        <!-- <img src="images/avatars/avatar (1).png" />
-                        <img src="images/avatars/avatar (2).png" />
-                        <img src="images/avatars/avatar (3).png" />
-                        <img src="images/avatars/avatar (4).png" />
-                        <img src="images/avatars/avatar (5).png" /> -->
                         <div class="avatar1"></div>
                         <div class="avatar2"></div>
                         <div class="avatar3"></div>
@@ -47,11 +42,6 @@
                         <div class="avatar5"></div>
                     </div>
                     <div  class="avatarsRow">
-                        <!-- <img src="images/avatars/avatar (6).png" />
-                        <img src="images/avatars/avatar (7).png" />
-                        <img src="images/avatars/avatar (8).png" />
-                        <img src="images/avatars/avatar (9).png" />
-                        <img src="images/avatars/avatar (10).png" /> -->
                         <div class="avatar6"></div>
                         <div class="avatar7"></div>
                         <div class="avatar8"></div>
@@ -59,11 +49,6 @@
                         <div class="avatar10"></div>
                     </div>
                     <div  class="avatarsRow">
-                        <!-- <img src="images/avatars/avatar (11).png" />
-                        <img src="images/avatars/avatar (12).png" />
-                        <img src="images/avatars/avatar (13).png" />
-                        <img src="images/avatars/avatar (14).png" />
-                        <img src="images/avatars/avatar (15).png" /> -->
                         <div class="avatar11"></div>
                         <div class="avatar12"></div>
                         <div class="avatar13"></div>
@@ -71,11 +56,6 @@
                         <div class="avatar15"></div>
                     </div>
                     <div  class="avatarsRow">
-                        <!-- <img src="images/avatars/avatar (16).png" />
-                        <img src="images/avatars/avatar (17).png" />
-                        <img src="images/avatars/avatar (18).png" />
-                        <img src="images/avatars/avatar (19).png" />
-                        <img src="images/avatars/avatar (20).png" /> -->
                         <div class="avatar16"></div>
                         <div class="avatar17"></div>
                         <div class="avatar18"></div>
@@ -238,7 +218,7 @@
                 </table>
             </div>
             <div class="scorePlayer">
-                <img src="images/furry.png" alt="avatar" />
+                <div></div>
                 <p class="playerScoreInfo"></p>
             </div>
             <div class="clear"></div>
