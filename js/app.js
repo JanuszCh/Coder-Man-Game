@@ -1,48 +1,121 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-//wyciagnac wszystki zmienne z funckji na gore - zwlaszcza te ktore odpytuja DOM
+    //wyciagnac wszystki zmienne z funckji na gore - zwlaszcza te ktore odpytuja DOM
+    //przerobic wszystkie polecenia na jQ
     //tempFurry / index zamienic na indexPlayer
     // Furry zamienic na PLayer
+    // zamienic w petlach for xxx[i] na xxx.eq(i)
+
+
+    //nie działa bold na hover buttonow
+    // czy jest sens dawać .find() na ponizsze zmienne
+
+
+    //avatar(11) i avatar(13) sa takie same png
+
     var index = 60;
     var board = $('#boardFront');
-    var screenGameOver = $('#gameOver div.scoreTable #bestResults');
-    var input = $('input');
+    var boardDivs = board.find('div');
+    var bestResultsTable = $('#gameOver div.scoreTable #bestResults');
+    var playerNameInput = $('#playerName');
+    var screenStart = $('#startGame');
+    var screenGameOver = $('#gameOver');
+    var startButton = $('#startButton');
+    var playAgainButton = $('#playAgainButton');
+    var mainScreenButton = $('#mainScreenButton');
+    var avatarClass = "avatar1";
 
-    //=====================DZIAŁA!!!======================================
-    // function randomWall() {
-    //     var divs = $('#boardFront div.wall');
-    //     var walls = ['wall1.png', 'wall2.png', 'wall3.png', 'wall4.png'];
-    //     divs.css("backgroundImage", "url(images/" + walls[Math.floor(Math.random() * walls.length)] + " )");
-    // }
-    // randomWall();
+    function avatarSelect() {
+        var avatars = screenStart.find('div.avatarsRow div');
+        avatars.click(function() {
+            for (var i = 0; i < avatars.length; i++) {
+                $(avatars.eq(i)).removeAttr('style');
+            }
+            $(this).css('border', '2px solid #48e5f9');
+            avatarClass = $(this).attr('class');
+            boardDivs.eq(60).attr('class',avatarClass);
 
+        });
+    }
+avatarSelect();
+
+
+    startButton.click(function() {
+        screenStart.hide(600);
+        board.show(600);
+    });
+
+    mainScreenButton.click(function() {
+        screenGameOver.hide(600);
+        board.hide();
+        screenStart.show(600);
+        for (var i = 0; i < boardDivs.length; i++) {
+            if ($(boardDivs[i]).hasClass('speed')) {
+                $(boardDivs[i]).removeClass('speed');
+            }
+        }
+        showCoinIcon();
+        showSpeedIcon();
+        randomWall();
+        gg.furry.direction = "";
+        gg.score = 0;
+        index = 60;
+        clearInterval(start);
+        start = setInterval(function() {
+            self.oneStep();
+        }, 300);
+        bestResultsTable.find('.addedRow').remove();
+    });
+
+    playAgainButton.click(function() {
+        screenGameOver.hide(600);
+        board.show(600);
+        for (var i = 0; i < boardDivs.length; i++) {
+            if ($(boardDivs[i]).hasClass('speed')) {
+                $(boardDivs[i]).removeClass('speed');
+            }
+        }
+        showCoinIcon();
+        showSpeedIcon();
+        randomWall();
+        gg.furry.direction = "";
+        gg.score = 0;
+        index = 60;
+        clearInterval(start);
+        start = setInterval(function() {
+            self.oneStep();
+        }, 300);
+        bestResultsTable.find('.addedRow').remove();
+    });
+
+    function randomWall() {
+        var divs = $('#boardFront div.wall');
+        var walls = ['wall1.png', 'wall2.png', 'wall3.png', 'wall4.png', 'wall5.png', 'wall6.png', 'wall7.png', 'wall8.png', 'wall9.png', 'wall10.png', 'wall11.png', 'wall12.png', 'wall13.png'];
+        divs.css("backgroundImage", "url(images/walls/" + walls[Math.floor(Math.random() * walls.length)] + " )");
+    }
 
     function insertContent(scores) {
-        // var newTable = $('<table id="bestResults">');
         $.each(scores, function(indexTable, score) {
             var newTd = $('<td>');
             var newTd2 = $('<td>');
-            var newTr = $('<tr>');
+            var newTr = $('<tr class="addedRow">');
             newTd2.append(scores[indexTable][1]);
             newTd.append(scores[indexTable][0]);
             newTr.append(newTd2);
             newTr.append(newTd);
-            screenGameOver.append(newTr);
+            bestResultsTable.append(newTr);
         });
-        // screenGameOver.append(newTr);
     }
 
     function sendScore() {
-        // console.log('przesylam wynik');
-        var nameVal = $('#name').val();
+        var nameVal = playerNameInput.val();
         var scoreVal = gg.score;
-
 
         //działa ale wczytuje wszystkie cookie jakie sa - zastanowic sie jaka metode wybrac php/js
         // document.cookie = nameVal;
         // var inputName = document.cookie;
         // console.log(inputName);
-        // input.val(inputName);
+        // playerNameInput.val(inputName);
 
         $.ajax({
             url: 'score.php',
@@ -58,10 +131,6 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log(error);
         });
     }
-
-    //nie korzystam z actX i actY-------------------------------------
-    var actX = 0;
-    var actY = 0;
 
     var Furry = function(x, y, direction) {
         this.x = 0;
@@ -94,52 +163,33 @@ document.addEventListener("DOMContentLoaded", function() {
     var arrayWall = [];
 
 
-    function showSpeed() {
-        var divs = $('#boardFront div');
-
-        for (var i = 0; i < divs.length; i++) {
-            if (!divs[i].classList.contains('wall') && i != 60) {
+    function showSpeedIcon() {
+        for (var i = 0; i < boardDivs.length; i++) {
+            if (!boardDivs[i].classList.contains('wall') && i != 60) {
                 arrayWall.push(i);
             }
         }
         var randomIndex = Math.floor(Math.random() * arrayWall.length);
-        divs[arrayWall[randomIndex]].classList.remove('coin');
-        divs[arrayWall[randomIndex]].classList.add('speed');
+        boardDivs[arrayWall[randomIndex]].classList.remove('coin');
+        boardDivs[arrayWall[randomIndex]].classList.add('speed');
     }
-    showSpeed();
-
 
     Game.prototype.position = function(x, y) {
         if (this.furry.direction == 'right') {
             x += 1;
-            actX = actX + x;
         } else if (this.furry.direction == 'left') {
             x -= 1;
-            actX = actX + x;
         } else if (this.furry.direction == 'up') {
             y -= 1;
-            actY = actY + y;
         } else if (this.furry.direction == 'down') {
             y += 1;
-            actY = actY + y;
         }
         index += x + y * 11;
     };
 
-    //nie dziala dodaje ciagle coin co interval
-    Game.prototype.positionCoin = function() {
-        // index2 = this.coin.x + this.coin.y * 10;
-        // for (var i = 0; i < this.board.length; i++) {
-        //     if (! this.board[i].classList.contains('wall') && ! this.board[i].classList.contains('furry') ) {
-        //         this.board[i].classList.add('coin');
-        //     }
-        // }
-    };
-
-    function showCoin() {
-        index2 = gg.coin.x + gg.coin.y * 10;
+    function showCoinIcon() {
         for (var i = 0; i < gg.board.length; i++) {
-            if (! gg.board[i].classList.contains('wall') && i!=60) {
+            if (!gg.board[i].classList.contains('wall') && i != 60) {
                 gg.board[i].classList.add('coin');
             }
         }
@@ -149,14 +199,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     Game.prototype.showFurry = function() {
         for (var i = 0; i < this.board.length; i++) {
-            this.board[i].classList.remove('furry');
+            this.board[i].classList.remove(avatarClass);
         }
-        this.board[index].classList.add('furry');
+        this.board[index].classList.add(avatarClass);
     };
-
-    // Game.prototype.showCoin = function() {
-    //     this.board[index2].classList.add('coin');
-    // };
 
     Game.prototype.moveDirection = function(event) {
         if (event.which == 37) {
@@ -172,8 +218,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     Game.prototype.coinCollision = function() {
         var tempFurry = index;
-        // var tempCoin = 0;
-        //this.board = document.querySelectorAll('section div');
 
         if (this.board[tempFurry].classList.contains('coin')) {
             this.board[tempFurry].classList.remove('coin');
@@ -187,48 +231,34 @@ document.addEventListener("DOMContentLoaded", function() {
         var tempFurry = index;
         var tempWall = 0;
         var playerScoreInfo = $("p.playerScoreInfo");
-        var inputVal = input.val();
+        var inputVal = playerNameInput.val();
 
         if ($(this.board[tempFurry]).hasClass('wall')) {
-            playerScoreInfo.html("Gratulacje <span class='playerInfo'>" + inputVal + "!</span><br>Twoj wynik to: <span class='playerInfo'> "+ gg.score + "!</span>" );
-            alert('game over');
+            playerScoreInfo.html("Gratulacje <span class='playerInfo'>" + inputVal + "!</span><br>Twoj wynik to: <span class='playerInfo'> " + gg.score + "!</span>");
             clearInterval(start);
-            console.log('game over');
             sendScore();
+            board.hide(600);
+            screenGameOver.show(600);
         }
     };
 
     Game.prototype.oneStep = function() {
         this.position(0, 0);
         this.showFurry();
-
-        // this.positionCoin();
         this.coinCollision();
-
         this.gameOver();
-        // this.showCoin();
     };
 
     var start = setInterval(function() {
         self.oneStep();
     }, 300);
 
-
     var gg = new Game();
-        showCoin();
-    // gg.position(1, 1);
-    // gg.positionCoin();
-    // gg.showFurry();
-    // gg.showCoin();
-    // gg.oneStep();
+    randomWall();
+    showCoinIcon();
+    showSpeedIcon();
 
     window.addEventListener('keydown', function(event) {
         gg.moveDirection(event);
     });
-
-
-
-
-
-
 });

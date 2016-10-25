@@ -3,7 +3,6 @@
 <html>
 
 <head>
-    <!-- <meta charset="utf-8"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
     <title>New game</title>
     <link rel="stylesheet" href="css/reset.css" media="screen" title="no title">
@@ -27,42 +26,61 @@
             </div>
             <div class="player">
                 <form action="index.html" method="get">
-                    <!-- <label for="name">Podaj imie</label><br> -->
                         <input type="text" name="name" value="<?php if(!isset($_SESSION['mojeimie'])){
                             $_SESSION['mojeimie'] = "";
                         } else {
                             echo($_SESSION['mojeimie']);
-                        }  ?>" id="name" placeholder="Twoje imie">
+                        }  ?>" placeholder="Twoje imie" id="playerName">
                 </form>
                 <div class="avatars">
                     wybierz avatar
-                    <div style="height:auto;">
-                        <img src="images/furry.png" />
-                        <img src="images/furry.png" />
-                        <img src="images/furry.png" />
-                        <img src="images/furry.png" />
-                        <img src="images/furry.png" />
+                    <div class="avatarsRow">
+                        <!-- <img src="images/avatars/avatar (1).png" />
+                        <img src="images/avatars/avatar (2).png" />
+                        <img src="images/avatars/avatar (3).png" />
+                        <img src="images/avatars/avatar (4).png" />
+                        <img src="images/avatars/avatar (5).png" /> -->
+                        <div class="avatar1"></div>
+                        <div class="avatar2"></div>
+                        <div class="avatar3"></div>
+                        <div class="avatar4"></div>
+                        <div class="avatar5"></div>
                     </div>
-                    <div style="height:auto;">
-                        <img src="images/furry.png" />
-                        <img src="images/furry.png" />
-                        <img src="images/furry.png" />
-                        <img src="images/furry.png" />
-                        <img src="images/furry.png" />
+                    <div  class="avatarsRow">
+                        <!-- <img src="images/avatars/avatar (6).png" />
+                        <img src="images/avatars/avatar (7).png" />
+                        <img src="images/avatars/avatar (8).png" />
+                        <img src="images/avatars/avatar (9).png" />
+                        <img src="images/avatars/avatar (10).png" /> -->
+                        <div class="avatar6"></div>
+                        <div class="avatar7"></div>
+                        <div class="avatar8"></div>
+                        <div class="avatar9"></div>
+                        <div class="avatar10"></div>
                     </div>
-                    <div style="height:auto;">
-                        <img src="images/furry.png" />
-                        <img src="images/furry.png" />
-                        <img src="images/furry.png" />
-                        <img src="images/furry.png" />
-                        <img src="images/furry.png" />
+                    <div  class="avatarsRow">
+                        <!-- <img src="images/avatars/avatar (11).png" />
+                        <img src="images/avatars/avatar (12).png" />
+                        <img src="images/avatars/avatar (13).png" />
+                        <img src="images/avatars/avatar (14).png" />
+                        <img src="images/avatars/avatar (15).png" /> -->
+                        <div class="avatar11"></div>
+                        <div class="avatar12"></div>
+                        <div class="avatar13"></div>
+                        <div class="avatar14"></div>
+                        <div class="avatar15"></div>
                     </div>
-                    <div style="height:auto;">
-                        <img src="images/furry.png" />
-                        <img src="images/furry.png" />
-                        <img src="images/furry.png" />
-                        <img src="images/furry.png" />
-                        <img src="images/furry.png" />
+                    <div  class="avatarsRow">
+                        <!-- <img src="images/avatars/avatar (16).png" />
+                        <img src="images/avatars/avatar (17).png" />
+                        <img src="images/avatars/avatar (18).png" />
+                        <img src="images/avatars/avatar (19).png" />
+                        <img src="images/avatars/avatar (20).png" /> -->
+                        <div class="avatar16"></div>
+                        <div class="avatar17"></div>
+                        <div class="avatar18"></div>
+                        <div class="avatar19"></div>
+                        <div class="avatar20"></div>
                     </div>
                 </div>
             </div>

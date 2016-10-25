@@ -112,8 +112,9 @@
                 justify-content: center;
 
                 &:hover {
+                    background-color: $mainColor;
                     border: 2px solid $mainColor;
-                    color: $mainColor;
+                    color: $backgroundColor;
                     cursor: pointer;
                 }
             }
