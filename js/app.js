@@ -1,24 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    //wyciagnac wszystki zmienne z funckji na gore - zwlaszcza te ktore odpytuja DOM
-
-    // czcionka
-    // dzwiek zebrania speed
-
-    // prz kliknieciu ekran glowny i ponownie start nie zeruje sie predkosc gry
-
-    // div czy button?
-    // nie działa bold na hover buttonow
-    // czy jest sens dawać .find() na ponizsze zmienne
-
 
     var indexPlayer = 60;
-    var board = $('#boardFront');
-    var boardDivs = board.find('div');
-    var bestResultsTable = $('#gameOver div.scoreTable #bestResults');
+    var board = $('.board');
+    var cubeSide = $('#show-front'); // dodana zmienna
+    var boardDivs = cubeSide.find('div'); // bylo board.find
+    var screenGameOver = $('#gameOver');
+    var bestResultsTable = $('div.scoreTable #bestResults', screenGameOver);
     var playerNameInput = $('#playerName');
     var screenStart = $('#startGame');
-    var screenGameOver = $('#gameOver');
+    var screnGameBoard = $('#screnGameBoard');
     var startButton = $('#startButton');
     var playAgainButton = $('#playAgainButton');
     var mainScreenButton = $('#mainScreenButton');
@@ -26,6 +17,10 @@ document.addEventListener("DOMContentLoaded", function() {
     var gameSpeed = 500;
     var coinSound = new Audio('sounds/coin.wav');
     var gameSound = new Audio('sounds/mainSound.wav');
+
+console.log(cubeSide);
+
+
 
 
     function avatarSelect() {
@@ -42,13 +37,35 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     startButton.click(function() {
+        // $(this).animate({
+        // width: "0"
+        // },200);
+        for (var i = 0; i < boardDivs.length; i++) {
+            if ($(boardDivs.eq(i)).hasClass('speed')) {
+                $(boardDivs.eq(i)).removeClass('speed');
+            }
+        }
+        // showCoinIcon();
+        showSpeedIcon();
+        randomWall();
+        gg.player.direction = "";
+        gg.score = 0;
+        indexPlayer = 60;
+        gameSpeed = 500;
+        clearInterval(start);
+        start = setInterval(function() {
+            self.oneStep();
+        }, gameSpeed);
+        bestResultsTable.find('.addedRow').remove();
+
         screenStart.hide(600);
-        board.show(600);
+
+        screnGameBoard.show(600);
     });
 
-    mainScreenButton.click(function() {
+    mainScreenButton.click(function() { //dla main screen nie trzeba uruchamiac calej sekwencji = zrobi to startButton jedynie czyszczenie wynikow itp
         screenGameOver.hide(600);
-        board.hide();
+        screnGameBoard.hide();
         screenStart.show(600);
         for (var i = 0; i < boardDivs.length; i++) {
             if ($(boardDivs.eq(i)).hasClass('speed')) {
@@ -61,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
         gg.player.direction = "";
         gg.score = 0;
         indexPlayer = 60;
+        gameSpeed = 500;
         clearInterval(start);
         start = setInterval(function() {
             self.oneStep();
@@ -70,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     playAgainButton.click(function() {
         screenGameOver.hide(600);
-        board.show(600);
+        screnGameBoard.show(600);
         for (var i = 0; i < boardDivs.length; i++) {
             if ($(boardDivs.eq(i)).hasClass('speed')) {
                 $(boardDivs.eq(i)).removeClass('speed');
@@ -91,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function randomWall() {
-        var divs = $('#boardFront div.wall');
+        var divs = $('div.wall', board);
         var walls = ['wall1.png', 'wall2.png', 'wall3.png', 'wall4.png', 'wall5.png', 'wall6.png', 'wall7.png', 'wall8.png', 'wall9.png', 'wall10.png', 'wall11.png', 'wall12.png', 'wall13.png'];
         divs.css("backgroundImage", "url(images/walls/" + walls[Math.floor(Math.random() * walls.length)] + " )");
     }
@@ -149,8 +167,10 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
 
+    var arrayWall = [];
+
     function showSpeedIcon() {
-        var arrayWall = [];
+
         for (var i = 0; i < boardDivs.length; i++) {
             if (!boardDivs.eq(i).hasClass('wall') && i != 60) {
                 arrayWall.push(i);
@@ -165,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var tempPlayer = indexPlayer;
         if ($(this.board.eq(tempPlayer)).hasClass('speed')) {
             $(this.board.eq(tempPlayer)).removeClass('speed');
-            gameSpeed -= (gameSpeed * 0.2);
+            gameSpeed -= (gameSpeed * 0.3);
             clearInterval(start);
             start = setInterval(function() {
                 self.oneStep();
@@ -235,10 +255,69 @@ document.addEventListener("DOMContentLoaded", function() {
             playerScoreInfo.html("Gratulacje <span class='playerInfo'>" + inputVal + "!</span><br>Twoj wynik to: <span class='playerInfo'> " + gg.score + "!</span>");
             clearInterval(start);
             sendScore();
-            board.hide(600);
+            screnGameBoard.hide(600);
             screenGameOver.show(600);
         }
     };
+
+    var cube = $('#cube');
+    var arrayCubeAnimations = ['show-front', 'show-back', 'show-bottom', 'show-top', 'show-right', 'show-left'];
+    var cubeAnimationClass = arrayCubeAnimations[Math.floor(Math.random() * arrayCubeAnimations.length)];
+
+
+    Game.prototype.nextLevel = function() {
+        var arrayItemsTemp = [];
+        for (var i = 0; i < arrayWall.length; i++) {
+            if (boardDivs.eq(arrayWall[i]).hasClass('coin') || boardDivs.eq(arrayWall[i]).hasClass('speed')) {
+                arrayItemsTemp.push(i);
+            }
+        }
+        if (arrayItemsTemp.length === 0) {
+            cubeAnimate();
+        }
+    };
+
+    function cubeAnimate() {
+        var tempClass = cube.attr('class');
+        cube.removeClass(cube.attr('class'));
+        while (cubeAnimationClass === tempClass) {
+            cubeAnimationClass = arrayCubeAnimations[Math.floor(Math.random() * arrayCubeAnimations.length)];
+        }
+        cube.addClass(cubeAnimationClass);
+
+        cubeSide = $('#' + cubeAnimationClass);
+
+        level();
+
+    }
+
+    function level() {
+        console.log(cubeSide);
+
+        for (var i = 0; i < boardDivs.length; i++) {
+            if ($(boardDivs.eq(i)).hasClass('speed')) {
+                $(boardDivs.eq(i)).removeClass('speed');
+            }
+        }
+        // gg = new Game();
+        showCoinIcon();
+        showSpeedIcon();
+        randomWall();
+        gg.player.direction = "";
+        // gg.score = 0;
+        indexPlayer = 60;
+        // gameSpeed = 500;
+        clearInterval(start);
+        start = setInterval(function() {
+            self.oneStep();
+        }, gameSpeed);
+
+    }
+
+
+
+
+
 
     Game.prototype.oneStep = function() {
         // gameSound.play();
@@ -246,6 +325,7 @@ document.addEventListener("DOMContentLoaded", function() {
         this.showPlayer();
         this.coinCollision();
         this.speedCollision();
+        this.nextLevel();
         this.gameOver();
     };
 
@@ -255,9 +335,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     var gg = new Game();
     randomWall();
-    showCoinIcon();
+    // showCoinIcon();
     showSpeedIcon();
     avatarSelect();
+
 
     window.addEventListener('keydown', function(event) {
         gg.moveDirection(event);
