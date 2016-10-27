@@ -1,6 +1,14 @@
 @import "scss/modules/variables";
-@import "scss/modules/mixins";
+@import "scss/partials/avatars";
 @import "scss/partials/cube";
 @import "scss/partials/cubeSide";
 @import "scss/partials/startGame";
 @import "scss/partials/gameOver";
+@font-face {
+    font-family: delusion;
+    src: url('fonts/delusion.ttf');
+}
+@font-face {
+    font-family: charlie;
+    src: url('fonts/charlie brown m54.ttf');
+}

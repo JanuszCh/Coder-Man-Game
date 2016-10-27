@@ -4,7 +4,10 @@
     background-color: $backgroundColor;
     height: 100vh;
     color: white;
-    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: charlie, Arial, sans-serif;
     // display: none;
     div.container {
         width: 1000px;
@@ -17,14 +20,13 @@
         header {
             width: 100%;
             height: 15%;
-            border: 1px solid red;
             display: flex;
             align-items: center;
             justify-content: center;
 
             div {
-                font-size: 50px;
-                font-weight: 800;
+                font-family: delusion, Arial, sans-serif;
+                font-size: 70px;
             }
         }
 
@@ -32,9 +34,8 @@
             width: 50%;
             height: 70%;
             padding: 20px;
-            font-size: 20px;
+            font-size: 25px;
             float: left;
-            border: 1px solid red;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -49,13 +50,13 @@
             height: 70%;
             padding: 20px;
             float: left;
-            border: 1px solid red;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
 
             input {
+                font-family: charlie, Arial, sans-serif;
                 background-color: $backgroundColor;
                 color: $mainColor;
                 border: none;
@@ -64,26 +65,26 @@
                 font-size: 30px;
 
                 &::-webkit-input-placeholder {
-                    color: white;
+                    color: gray;
                 }
 
                 &:-moz-placeholder {
-                    color: white;
+                    color: gray;
                     opacity: 1;
                 }
 
                 &::-moz-placeholder {
-                    color: white;
+                    color: gray;
                     opacity: 1;
                 }
 
                 &:-ms-input-placeholder {
-                    color: white;
+                    color: gray;
                 }
 
                 &:focus {
                     outline: none;
-                    border-bottom: 3px solid $mainColor;
+                    border-bottom: 5px solid $mainColor;
 
                     &::-webkit-input-placeholder {
                         color: transparent;
@@ -105,19 +106,16 @@
 
             p {
                 font-size: 20px;
-                font-weight: 800;
                 margin-top: 20px;
             }
 
             div.avatars {
                 max-width: 100%;
                 height: 100%;
-                border: 1px solid red;
 
                 .avatarsRow {
                     height: 20%;
                     width: 433px;
-                    border: 1px solid red;
 
                     div {
                         height: 100%;
@@ -144,12 +142,11 @@
     footer {
         width: 100%;
         height: 15%;
-        border: 1px solid red;
         display: flex;
         align-items: center;
         justify-content: center;
 
-        #startButton {            
+        #startButton {
             z-index: 99;
             width: 50%;
             height: 80%;
@@ -167,152 +164,7 @@
                 border: 2px solid $mainColor;
                 color: $backgroundColor;
                 cursor: pointer;
-                font-weight: 800;
-
-                span {
-                    font-weight: 800;
-                }
             }
         }
     }
-}
-
-.avatar1 {
-    background-image: url('images/avatars/avatar (1).png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.avatar2 {
-    background-image: url('images/avatars/avatar (2).png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.avatar3 {
-    background-image: url('images/avatars/avatar (3).png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.avatar4 {
-    background-image: url('images/avatars/avatar (4).png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.avatar5 {
-    background-image: url('images/avatars/avatar (5).png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.avatar6 {
-    background-image: url('images/avatars/avatar (6).png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.avatar7 {
-    background-image: url('images/avatars/avatar (7).png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.avatar8 {
-    background-image: url('images/avatars/avatar (8).png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.avatar9 {
-    background-image: url('images/avatars/avatar (9).png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.avatar10 {
-    background-image: url('images/avatars/avatar (10).png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.avatar11 {
-    background-image: url('images/avatars/avatar (11).png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.avatar12 {
-    background-image: url('images/avatars/avatar (12).png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.avatar13 {
-    background-image: url('images/avatars/avatar (13).png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.avatar14 {
-    background-image: url('images/avatars/avatar (14).png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.avatar15 {
-    background-image: url('images/avatars/avatar (15).png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.avatar16 {
-    background-image: url('images/avatars/avatar (16).png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.avatar17 {
-    background-image: url('images/avatars/avatar (17).png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.avatar18 {
-    background-image: url('images/avatars/avatar (18).png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.avatar19 {
-    background-image: url('images/avatars/avatar (19).png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-.avatar20 {
-    background-image: url('images/avatars/avatar (20).png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
 }

@@ -2,13 +2,11 @@
 
 body {
     background-color: $backgroundColor;
-    // background-color: #0b1221;
-    // background-color: #0b1431;
+
     .containerCube {
         width: $boardSize;
         height: $boardSize;
         position: relative;
-        margin: 0 auto 40px;
         -webkit-perspective: 1000px;
         -moz-perspective: 1000px;
         -o-perspective: 1000px;
@@ -32,17 +30,12 @@ body {
                 position: absolute;
                 width: $boardSize;
                 height: $boardSize;
-                color: transparent;
+                // color: transparent;
                 text-align: center;
             }
         }
     }
-    // #cube.panels-backface-invisible figure {
-    //     -webkit-backface-visibility: hidden;
-    //     -moz-backface-visibility: hidden;
-    //     -o-backface-visibility: hidden;
-    //     backface-visibility: hidden;
-    // }
+
     #cube .front {
         background: hsla( 0, 100%, 50%, 0.7 );
     }
@@ -68,9 +61,9 @@ body {
     }
 
     #cube .front {
-        -webkit-transform: translateZ( 100px );
-        -moz-transform: translateZ( 100px );
-        -o-transform: translateZ( 100px );
+        -webkit-transform: translateZ( $boardSize / 2 );
+        -moz-transform: translateZ( $boardSize / 2 );
+        -o-transform: translateZ( $boardSize / 2 );
         transform: translateZ( $boardSize / 2 );
     }
 
@@ -150,47 +143,4 @@ body {
         -o-transform: translateZ( -$boardSize / 2 ) rotateX( 90deg );
         transform: translateZ( -$boardSize / 2 ) rotateX( 90deg );
     }
-    // div {
-    //     width: $fieldSize;
-    //     height: $fieldSize;
-    //     // border: 1px solid black;
-    //     float: left;
-    // }
-    // div.wall {
-    //     border: 1px solid black;
-    //     width: 8%;
-    //     height: 8%;
-    //     background-color: gray;
-    //     background-repeat: no-repeat;
-    //     background-size: contain;
-    //     float: left;
-    // }
-    //
-    //     h3.score {
-    //         z-index: 2;
-    //         line-height: $boardSize;
-    //         font-size: 40px;
-    //         position: absolute;
-    //         left: 0;
-    //         right: 0;
-    //         margin-left: auto;
-    //         margin-right: auto;
-    //         width: 200px;
-    //         color: blue;
-    //         font-weight: bolder;
-    //     }
 }
-//
-// .coin {
-//     background-image: url('images/coin.png');
-//     background-repeat: no-repeat;
-//     background-size: 40px;
-//     background-position: center;
-// }
-//
-// .speed {
-//     background-image: url('images/speed.png');
-//     background-repeat: no-repeat;
-//     background-size: 40px;
-//     background-position: center;
-// }
