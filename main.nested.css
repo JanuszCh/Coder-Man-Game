@@ -188,32 +188,32 @@ body {
     -moz-transform: rotateX(-90deg) translateZ(45.1vh);
     -o-transform: rotateX(-90deg) translateZ(45.1vh);
     transform: rotateX(-90deg) translateZ(45.1vh); }
-  body #cube.show-front {
+  body #cube.showFront {
     -webkit-transform: translateZ(-45.1vh);
     -moz-transform: translateZ(-45.1vh);
     -o-transform: translateZ(-45.1vh);
     transform: translateZ(-45.1vh); }
-  body #cube.show-back {
+  body #cube.showBack {
     -webkit-transform: translateZ(-45.1vh) rotateX(-180deg);
     -moz-transform: translateZ(-45.1vh) rotateX(-180deg);
     -o-transform: translateZ(-45.1vh) rotateX(-180deg);
     transform: translateZ(-45.1vh) rotateX(-180deg); }
-  body #cube.show-right {
+  body #cube.showRight {
     -webkit-transform: translateZ(-45.1vh) rotateY(-90deg);
     -moz-transform: translateZ(-45.1vh) rotateY(-90deg);
     -o-transform: translateZ(-45.1vh) rotateY(-90deg);
     transform: translateZ(-45.1vh) rotateY(-90deg); }
-  body #cube.show-left {
+  body #cube.showLeft {
     -webkit-transform: translateZ(-45.1vh) rotateY(90deg);
     -moz-transform: translateZ(-45.1vh) rotateY(90deg);
     -o-transform: translateZ(-45.1vh) rotateY(90deg);
     transform: translateZ(-45.1vh) rotateY(90deg); }
-  body #cube.show-top {
+  body #cube.showTop {
     -webkit-transform: translateZ(-45.1vh) rotateX(-90deg);
     -moz-transform: translateZ(-45.1vh) rotateX(-90deg);
     -o-transform: translateZ(-45.1vh) rotateX(-90deg);
     transform: translateZ(-45.1vh) rotateX(-90deg); }
-  body #cube.show-bottom {
+  body #cube.showBottom {
     -webkit-transform: translateZ(-45.1vh) rotateX(90deg);
     -moz-transform: translateZ(-45.1vh) rotateX(90deg);
     -o-transform: translateZ(-45.1vh) rotateX(90deg);
@@ -383,7 +383,10 @@ body {
       margin: 0 auto;
       border: 2px solid white;
       border-radius: 20px;
+      color: white;
       font-size: 40px;
+      font-family: charlie, arial, sans-serif;
+      outline: 0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -475,9 +478,13 @@ body {
           width: 45%;
           height: 80%;
           margin: 0 auto;
+          background-color: #0f182b;
           border: 2px solid white;
-          font-size: 40px;
           border-radius: 20px;
+          color: white;
+          font-size: 40px;
+          font-family: charlie, arial, sans-serif;
+          outline: 0;
           display: flex;
           align-items: center;
           justify-content: center; }

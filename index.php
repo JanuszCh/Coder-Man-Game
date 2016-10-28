@@ -68,9 +68,9 @@
             </div>
             <div class="clear"></div>
             <footer>
-                <div id="startButton">
+                <button id="startButton">
                     <span>START</span>
-                </div>
+                </button>
             </footer>
         </div>
     </section>
@@ -85,7 +85,7 @@
             </div>
         <section class="containerCube">
             <div id="cube" class="show-front">
-                <figure class="front board" id="show-front">
+                <figure class="front board" id="showFront">
                     <div class="wall"></div>
                     <div class="wall"></div>
                     <div class="wall"></div>
@@ -209,7 +209,7 @@
                     <div class="wall"></div>
                 </figure>
 
-                <figure class="back board" id="show-back">
+                <figure class="back board" id="showBack">
                     <div class="wall"></div>
                     <div class="wall"></div>
                     <div class="wall"></div>
@@ -333,7 +333,7 @@
                     <div class="wall"></div>
                 </figure>
 
-                <figure class="right board" id="show-right">
+                <figure class="right board" id="showRight">
                     <div class="wall"></div>
                     <div class="wall"></div>
                     <div class="wall"></div>
@@ -457,7 +457,7 @@
                     <div class="wall"></div>
                 </figure>
 
-                <figure class="left board" id="show-left">
+                <figure class="left board" id="showLeft">
                     <div class="wall"></div>
                     <div class="wall"></div>
                     <div class="wall"></div>
@@ -581,7 +581,7 @@
                     <div class="wall"></div>
                 </figure>
 
-                <figure class="top board" id="show-top">
+                <figure class="top board" id="showTop">
                     <div class="wall"></div>
                     <div class="wall"></div>
                     <div class="wall"></div>
@@ -705,7 +705,7 @@
                     <div class="wall"></div>
                 </figure>
 
-                <figure class="bottom board" id="show-bottom">
+                <figure class="bottom board" id="showBottom">
                     <div class="wall"></div>
                     <div class="wall"></div>
                     <div class="wall"></div>
@@ -861,12 +861,12 @@
             </div>
             <div class="clear"></div>
             <footer>
-                <div id="mainScreenButton">
+                <button id="mainScreenButton">
                     <span>MAIN SCREEN</span>
-                </div>
-                <div id="playAgainButton">
-                    <span>PLAY AGAIN</span>
-                </div>
+                </button>
+                <button id="playAgainButton">
+                    PLAY AGAIN
+                </button>
             </footer>
         </div>
         </div>

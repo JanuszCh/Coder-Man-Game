@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
     font-family: charlie, Arial, sans-serif;
-    // display: none;
+
     div.container {
         width: 1000px;
         height: 90vh;
@@ -153,7 +153,10 @@
             margin: 0 auto;
             border: 2px solid white;
             border-radius: 20px;
+            color: white;
             font-size: 40px;
+            font-family: charlie, arial, sans-serif;
+            outline: 0;
             display: flex;
             align-items: center;
             justify-content: center;

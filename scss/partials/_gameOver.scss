@@ -111,9 +111,13 @@
                     width: 45%;
                     height: 80%;
                     margin: 0 auto;
+                    background-color: $backgroundColor;
                     border: 2px solid white;
-                    font-size: 40px;
                     border-radius: 20px;
+                    color: white;
+                    font-size: 40px;
+                    font-family: charlie, arial, sans-serif;
+                    outline: 0;
                     display: flex;
                     align-items: center;
                     justify-content: center;

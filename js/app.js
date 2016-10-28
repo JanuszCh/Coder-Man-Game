@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     var indexPlayer = 60;
     var board = $('.board');
-    var cubeSide = $('#show-front');
+    var cubeSide = $('#showFront');
     var boardDivs = cubeSide.find('div');
     var cube = $('#cube');
     var screenGameOver = $('#gameOver');
@@ -38,10 +38,10 @@ document.addEventListener("DOMContentLoaded", function() {
             $(boardDivs.eq(i)).removeClass('speed');
             $(boardDivs.eq(i)).removeClass('coin');
         }
-        cubeSide = $('#show-front');
+        cubeSide = $('#showFront');
         boardDivs = cubeSide.find('div');
         gg.board = boardDivs;
-        cube.attr('class', 'show-front');
+        cube.attr('class', 'showFront');
 
         // showCoinIcon();
         showSpeedIcon();
@@ -62,36 +62,25 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     startButton.click(function() {
-        $(this).animate({
-            width: "0",
-            height: "0"
-        }, 300);
+        $(this).hide(300);
         startingSequence();
         setTimeout(function() {
             screenStart.hide(600);
             screnGameBoard.show(600);
         }, 300);
-
     });
 
     mainScreenButton.click(function() {
-        startButton.css('width', '50%').css('height', '80%');
-        $(this).animate({
-            width: "0",
-            height: "0"
-        }, 300);
+        startButton.show();
+        $(this).hide(300);
         setTimeout(function() {
             screenGameOver.hide(600);
-            screnGameBoard.hide();
             screenStart.show(600);
         }, 300);
     });
 
     playAgainButton.click(function() {
-        $(this).animate({
-            width: "0",
-            height: "0"
-        }, 300);
+        $(this).hide(300);
         startingSequence();
         setTimeout(function() {
             screenGameOver.hide(600);
@@ -237,8 +226,8 @@ document.addEventListener("DOMContentLoaded", function() {
             playerLevelInfo.html("Level: <span class='playerInfo'> " + gg.level + "</span>");
             clearInterval(start);
             sendScore();
-            playAgainButton.css('width', '45%').css('height', '80%');
-            mainScreenButton.css('width', '45%').css('height', '80%');
+            playAgainButton.show();
+            mainScreenButton.show();
             screnGameBoard.hide(600);
             screenGameOver.show(600);
         }
@@ -266,7 +255,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function cubeAnimate() {
-        var arrayCubeAnimations = ['show-front', 'show-back', 'show-bottom', 'show-top', 'show-right', 'show-left'];
+        var arrayCubeAnimations = ['showFront', 'showBack', 'showBottom', 'showTop', 'showRight', 'showLeft'];
         var cubeAnimationClass = arrayCubeAnimations[Math.floor(Math.random() * arrayCubeAnimations.length)];
         var tempClass = cube.attr('class');
 
@@ -291,7 +280,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 $(boardDivs.eq(i)).removeClass('speed');
             }
         }
-        showCoinIcon();
+        // showCoinIcon();
         showSpeedIcon();
         randomWall();
         gg.player.direction = "";
