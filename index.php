@@ -34,7 +34,9 @@
                             echo($_SESSION['playerNameSession']);
                         }  ?>" placeholder="Your Name" id="playerName">
                 </form>
-                <p>Choose your avatar:</p>
+                <p id="error"></p>
+                <div class="clear"></div>
+                <p class="avatar">Choose your avatar:</p>
                 <div class="avatars">
                     <div class="avatarsRow">
                         <div class="avatar1"></div>

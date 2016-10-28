@@ -349,9 +349,14 @@ body {
             color: transparent; }
           #startGame div.container div.player input:focus:-ms-input-placeholder {
             color: transparent; }
-      #startGame div.container div.player p {
-        font-size: 20px;
-        margin-top: 20px; }
+      #startGame div.container div.player .avatar {
+        font-size: 20px; }
+      #startGame div.container div.player #error {
+        width: 100%;
+        height: 20px;
+        color: red;
+        text-align: center;
+        font-size: 16px; }
       #startGame div.container div.player div.avatars {
         max-width: 100%;
         height: 100%; }

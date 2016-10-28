@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var startButton = $('#startButton');
     var playAgainButton = $('#playAgainButton');
     var mainScreenButton = $('#mainScreenButton');
-    var avatarClass = "avatar1";
+    var avatarClass = "";
     var gameSpeed = 500;
     var coinSound = new Audio('sounds/coin.mp3');
     var nextLevelSound = new Audio('sounds/next-level.mp3');
@@ -61,13 +61,22 @@ document.addEventListener("DOMContentLoaded", function() {
         gg.showLevel.text(gg.level);
     }
 
-    startButton.click(function() {
-        $(this).hide(300);
-        startingSequence();
-        setTimeout(function() {
-            screenStart.hide(600);
-            screnGameBoard.show(600);
-        }, 300);
+    startButton.click(function(e) {
+        e.preventDefault();
+        if (playerNameInput.val().length < 1) {
+            $('#error').text('Enter Your name!');
+        } else if (avatarClass.length < 1) {
+            $('#error').text('Choose avatar!');
+        } else {
+            $(this).hide(300);
+            startingSequence();
+            setTimeout(function() {
+                screenStart.hide(600);
+                screnGameBoard.show(600);
+            }, 300);
+            $('#error').text('');
+        }
+
     });
 
     mainScreenButton.click(function() {
@@ -226,6 +235,7 @@ document.addEventListener("DOMContentLoaded", function() {
             playerLevelInfo.html("Level: <span class='playerInfo'> " + gg.level + "</span>");
             clearInterval(start);
             sendScore();
+            boardDivs.eq(indexPlayer).removeClass(avatarClass);
             playAgainButton.show();
             mainScreenButton.show();
             screnGameBoard.hide(600);
