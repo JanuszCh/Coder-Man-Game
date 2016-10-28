@@ -28,10 +28,10 @@
             </div>
             <div class="player">
                 <form action="index.html" method="get">
-                    <input type="text" name="name" value="<?php if(!isset($_SESSION['mojeimie'])){
-                            $_SESSION['mojeimie'] = " ";
+                    <input type="text" name="name" value="<?php if(!isset($_SESSION['playerNameSession'])){
+                            $_SESSION['playerNameSession'] = " ";
                         } else {
-                            echo($_SESSION['mojeimie']);
+                            echo($_SESSION['playerNameSession']);
                         }  ?>" placeholder="Your Name" id="playerName">
                 </form>
                 <p>Choose your avatar:</p>

@@ -1,14 +1,13 @@
 <?php
 
-
 session_start();
 
-if (isset($_GET['name']) === true && isset($_GET['score']) === true) {
+if (isset($_GET['name']) && isset($_GET['score'])) {
 
-    $_SESSION['mojeimie'] = $_GET['name'];
+    $_SESSION['playerNameSession'] = $_GET['name'];
 
 
-    // zmienna $dane, która będzie zapisana
+// zmienna $dane, która będzie zapisana
 // może także pochodzić z formularza np. $dane = $_POST['dane'];
 $dane = $_GET['score'].",".$_GET['name']."\n";
 

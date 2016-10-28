@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
     var nextLevelSound = new Audio('sounds/next-level.mp3');
     var speedSound = new Audio('sounds/speed.mp3');
 
-
     function avatarSelect() {
         var avatars = screenStart.find('div.avatarsRow div');
         $(screenGameOver.find('.scorePlayer div:first-child')).attr('class', avatarClass);
@@ -34,8 +33,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-
-
     function startingSequence() {
         for (var i = 0; i < boardDivs.length; i++) {
             $(boardDivs.eq(i)).removeClass('speed');
@@ -45,14 +42,6 @@ document.addEventListener("DOMContentLoaded", function() {
         boardDivs = cubeSide.find('div');
         gg.board = boardDivs;
         cube.attr('class', 'show-front');
-
-        // for (var i = 0; i < boardDivs.length; i++) {
-        //     if ($(boardDivs.eq(i)).hasClass('speed')) {
-        //         $(boardDivs.eq(i)).removeClass('speed');
-        //     }
-        // }
-
-
 
         // showCoinIcon();
         showSpeedIcon();
@@ -72,44 +61,12 @@ document.addEventListener("DOMContentLoaded", function() {
         gg.showLevel.text(gg.level);
     }
 
-
     startButton.click(function() {
         $(this).animate({
             width: "0",
             height: "0"
         }, 300);
         startingSequence();
-        // cubeSide = $('#show-front');
-        // boardDivs = cubeSide.find('div');
-        // gg.board = boardDivs;
-        // cube.attr('class', 'show-front');
-        //
-        // for (var i = 0; i < boardDivs.length; i++) {
-        //     if ($(boardDivs.eq(i)).hasClass('speed')) {
-        //         $(boardDivs.eq(i)).removeClass('speed');
-        //     }
-        // }
-
-
-        // gameSound.play();
-        // showCoinIcon();
-
-        // showSpeedIcon();
-        // randomWall();
-        // gg.player.direction = "";
-        // gg.score = 0;
-        // indexPlayer = 60;
-        // gameSpeed = 500;
-        // clearInterval(start);
-        // start = setInterval(function() {
-        //     self.oneStep();
-        // }, gameSpeed);
-        // bestResultsTable.find('.addedRow').remove();
-        // gg.score = 0;
-        // gg.level = 1;
-        // gg.showScore.text(gg.score);
-        // gg.showLevel.text(gg.level);
-
         setTimeout(function() {
             screenStart.hide(600);
             screnGameBoard.show(600);
@@ -135,43 +92,11 @@ document.addEventListener("DOMContentLoaded", function() {
             width: "0",
             height: "0"
         }, 300);
-
         startingSequence();
-
         setTimeout(function() {
             screenGameOver.hide(600);
             screnGameBoard.show(600);
         }, 300);
-        //
-        // cubeSide = $('#show-front');
-        //
-        // boardDivs = cubeSide.find('div');
-        // gg.board = boardDivs;
-        // cube.attr('class', 'show-front');
-        //
-        //
-        // for (var i = 0; i < boardDivs.length; i++) {
-        //     if ($(boardDivs.eq(i)).hasClass('speed')) {
-        //         $(boardDivs.eq(i)).removeClass('speed');
-        //     }
-        // }
-        // showCoinIcon();
-        // showSpeedIcon();
-        // randomWall();
-        // gg.player.direction = "";
-        // gg.score = 0;
-        // indexPlayer = 60;
-        // gameSpeed = 500;
-        // clearInterval(start);
-        // start = setInterval(function() {
-        //     self.oneStep();
-        // }, gameSpeed);
-        // bestResultsTable.find('.addedRow').remove();
-        //
-        // gg.score = 0;
-        // gg.level = 1;
-        // gg.showScore.text(gg.score);
-        // gg.showLevel.text(gg.level);
     });
 
     function insertContent(scores) {
@@ -321,6 +246,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     Game.prototype.nextLevel = function() {
         var arrayItemsTemp = [];
+
         for (var i = 0; i < boardDivs.length; i++) {
             if (boardDivs.eq(i).hasClass('coin') || boardDivs.eq(i).hasClass('speed')) {
                 arrayItemsTemp.push(i);
@@ -335,6 +261,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function randomWall() {
         var divs = $('div.wall', board);
         var walls = ['wall1.png', 'wall2.png', 'wall3.png', 'wall4.png', 'wall5.png', 'wall6.png', 'wall7.png', 'wall8.png', 'wall9.png', 'wall10.png', 'wall11.png', 'wall12.png', 'wall13.png'];
+
         divs.css("backgroundImage", "url(images/walls/" + walls[Math.floor(Math.random() * walls.length)] + " )");
     }
 
@@ -342,6 +269,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var arrayCubeAnimations = ['show-front', 'show-back', 'show-bottom', 'show-top', 'show-right', 'show-left'];
         var cubeAnimationClass = arrayCubeAnimations[Math.floor(Math.random() * arrayCubeAnimations.length)];
         var tempClass = cube.attr('class');
+
         cube.removeClass(cube.attr('class'));
         while (cubeAnimationClass === tempClass) {
             cubeAnimationClass = arrayCubeAnimations[Math.floor(Math.random() * arrayCubeAnimations.length)];

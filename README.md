@@ -1,11 +1,15 @@
 # Coder-Man Game
 
-Coder-Man is a simple game. The idea was the legendary Pac-Man.
+### Inspiration
+Probably everyone knows the legendary Pac-Man game. Coder-Man is a simple variation Pac-Man.
 
-**Technologies used:**
+### Features
+* Twenty avatars to choose
+* Six different mazes
+* Score table with ten best scores
+
+### Technologies used:
 * HTML
 * PHP
 * SASS/CSS
-* JavaScript/jQuery
-
-
+* JavaScript/jQuery 3.1.1
