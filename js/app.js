@@ -5,14 +5,16 @@ document.addEventListener("DOMContentLoaded", function() {
     var cubeSide = $('#showFront');
     var boardDivs = cubeSide.find('div');
     var cube = $('#cube');
-    var screenGameOver = $('#gameOver');
-    var bestResultsTable = $('div.scoreTable #bestResults', screenGameOver);
-    var playerNameInput = $('#playerName');
     var screenStart = $('#startGame');
+    var screenGameOver = $('#gameOver');
     var screnGameBoard = $('#screnGameBoard');
-    var startButton = $('#startButton');
-    var playAgainButton = $('#playAgainButton');
-    var mainScreenButton = $('#mainScreenButton');
+    var playerNameInput = screenStart.find('#playerName');
+    var startButton = screenStart.find('#startButton');
+    var playerScoreInfo = screenGameOver.find("p.playerScoreInfo");
+    var playerLevelInfo = screenGameOver.find('p.playerLevelInfo');
+    var bestResultsTable = screenGameOver.find('div.scoreTable #bestResults');
+    var playAgainButton = screenGameOver.find('#playAgainButton');
+    var mainScreenButton = screenGameOver.find('#mainScreenButton');
     var avatarClass = "";
     var gameSpeed = 500;
     var coinSound = new Audio('sounds/coin.mp3');
@@ -226,16 +228,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
     Game.prototype.gameOver = function() {
         var tempWall = 0;
-        var playerScoreInfo = $("p.playerScoreInfo");
-        var playerLevelInfo = $('p.playerLevelInfo');
+
         var inputVal = playerNameInput.val();
 
         if ($(this.board.eq(indexPlayer)).hasClass('wall')) {
-            playerScoreInfo.html("Congratulations <span class='playerInfo'>" + inputVal + "</span><br>Your score: <span class='playerInfo'> " + gg.score + "</span>");
-            playerLevelInfo.html("Level: <span class='playerInfo'> " + gg.level + "</span>");
             clearInterval(start);
             sendScore();
             boardDivs.eq(indexPlayer).removeClass(avatarClass);
+            playerScoreInfo.html("Congratulations <span class='playerInfo'>" + inputVal + "</span><br>Your score: <span class='playerInfo'> " + gg.score + "</span>");
+            playerLevelInfo.html("Level: <span class='playerInfo'> " + gg.level + "</span>");
             playAgainButton.show();
             mainScreenButton.show();
             screnGameBoard.hide(600);
