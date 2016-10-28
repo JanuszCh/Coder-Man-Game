@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-
     var indexPlayer = 60;
     var board = $('.board');
     var cubeSide = $('#show-front');
@@ -19,8 +18,6 @@ document.addEventListener("DOMContentLoaded", function() {
     var coinSound = new Audio('sounds/coin.mp3');
     var nextLevelSound = new Audio('sounds/next-level.mp3');
     var speedSound = new Audio('sounds/speed.mp3');
-
-
 
 
     function avatarSelect() {
@@ -74,13 +71,6 @@ document.addEventListener("DOMContentLoaded", function() {
         gg.showScore.text(gg.score);
         gg.showLevel.text(gg.level);
     }
-
-
-
-
-
-
-
 
 
     startButton.click(function() {
@@ -406,9 +396,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     window.addEventListener('keydown', direction);
 
-    function direction() {
+    function direction(event) {
         gg.moveDirection(event);
     }
-
 
 });

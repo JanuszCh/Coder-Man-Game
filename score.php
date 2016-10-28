@@ -5,14 +5,7 @@ session_start();
 
 if (isset($_GET['name']) === true && isset($_GET['score']) === true) {
 
-    // if (!isset($_SESSION['mojeimie'])) {
     $_SESSION['mojeimie'] = $_GET['name'];
-
-//
-// } else {
-//     $_SESSION['mojeimie'] = $_GET['name'];
-// }
-
 
 
     // zmienna $dane, która będzie zapisana
@@ -51,14 +44,6 @@ array_multisort($out, SORT_DESC);
 $out = array_slice($out, 0, 10);
 echo json_encode($out);
 
-die();
 
-?><table><?php
-for ($j=0; $j <= 10; $j++) {?><tr><?php
-    for ($k=0; $k < 2 ; $k++) {
-        ?><td><?php print_r($out[$j][$k]); ?></td> <?php
-    } ?></tr><?php
-}
 
  ?>
-</table>
