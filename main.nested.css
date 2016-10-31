@@ -380,12 +380,11 @@ body {
     height: 15%;
     display: flex;
     align-items: center;
-    justify-content: center; }
+    justify-content: space-around; }
     #startGame footer #startButton {
       z-index: 99;
       width: 50%;
       height: 80%;
-      margin: 0 auto;
       border: 2px solid white;
       border-radius: 20px;
       color: white;
@@ -401,6 +400,9 @@ body {
         border: 2px solid #48e5f9;
         color: #0f182b;
         cursor: pointer; }
+    #startGame footer p {
+      font-size: 23px;
+      cursor: pointer; }
 
 #gameOver {
   background-color: #0f182b;

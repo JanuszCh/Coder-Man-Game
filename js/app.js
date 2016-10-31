@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function() {
     var boardDivs = cubeSide.find('div');
     var playerNameInput = screenStart.find('#playerName');
     var startButton = screenStart.find('#startButton');
+    var musicSwitch = screenStart.find('#music');
+    var soundSwitch = screenStart.find('#sound');
     var playerScoreInfo = screenGameOver.find("p.playerScoreInfo");
     var playerLevelInfo = screenGameOver.find('p.playerLevelInfo');
     var bestResultsTable = screenGameOver.find('div.scoreTable #bestResults');
@@ -17,9 +19,121 @@ document.addEventListener("DOMContentLoaded", function() {
     var mainScreenButton = screenGameOver.find('#mainScreenButton');
     var avatarClass = "";
     var gameSpeed = 500;
+    var isSoundOn = true;
+    var isMusicOn = true;
+    var mainMusic = new Audio('sounds/main.mp3');
     var coinSound = new Audio('sounds/coin.mp3');
     var nextLevelSound = new Audio('sounds/next-level.mp3');
     var speedSound = new Audio('sounds/speed.mp3');
+
+    var Player = function(x, y, direction) {
+        this.x = 0;
+        this.y = 0;
+        this.direction = direction;
+    };
+
+    var Game = function() {
+        this.board = boardDivs;
+        this.player = new Player(0, 0, '');
+        this.showScore = $('#scoreVal');
+        this.score = 0;
+        this.showLevel = $('#levelVal');
+        this.level = 1;
+        self = this;
+    };
+
+    Game.prototype.showPlayer = function() {
+        for (var i = 0; i < this.board.length; i++) {
+            $(this.board.eq(i)).removeClass(avatarClass);
+        }
+        $(this.board.eq(indexPlayer)).addClass(avatarClass);
+    };
+
+    Game.prototype.moveDirection = function(event) {
+        if (event.which == 37) {
+            self.player.direction = 'left';
+        } else if (event.which == 38) {
+            self.player.direction = 'up';
+        } else if (event.which == 39) {
+            self.player.direction = 'right';
+        } else if (event.which == 40) {
+            self.player.direction = 'down';
+        }
+    };
+
+    Game.prototype.position = function(x, y) {
+        if (this.player.direction == 'right') {
+            x += 1;
+        } else if (this.player.direction == 'left') {
+            x -= 1;
+        } else if (this.player.direction == 'up') {
+            y -= 1;
+        } else if (this.player.direction == 'down') {
+            y += 1;
+        }
+        indexPlayer += x + y * 11;
+    };
+
+    Game.prototype.speedCollision = function() {
+        if ($(this.board.eq(indexPlayer)).hasClass('speed')) {
+            $(this.board.eq(indexPlayer)).removeClass('speed');
+            gameSpeed -= (gameSpeed * 0.2);
+            clearInterval(start);
+            start = setInterval(function() {
+                self.oneStep();
+            }, gameSpeed);
+            playSound(speedSound);
+        }
+    };
+
+    Game.prototype.coinCollision = function() {
+        if ($(this.board.eq(indexPlayer)).hasClass('coin')) {
+            $(this.board.eq(indexPlayer)).removeClass('coin');
+            this.score += 1;
+            this.showScore.text(this.score);
+            playSound(coinSound);
+        }
+    };
+
+    Game.prototype.nextLevel = function() {
+        var arrayItemsTemp = [];
+
+        for (var i = 0; i < boardDivs.length; i++) {
+            if (boardDivs.eq(i).hasClass('coin') || boardDivs.eq(i).hasClass('speed')) {
+                arrayItemsTemp.push(i);
+            }
+        }
+        if (arrayItemsTemp.length === 0) {
+            boardDivs.eq(indexPlayer).removeClass(avatarClass);
+            cubeAnimate();
+        }
+    };
+
+    Game.prototype.gameOver = function() {
+        var tempWall = 0;
+        var inputVal = playerNameInput.val();
+
+        if ($(this.board.eq(indexPlayer)).hasClass('wall')) {
+            clearInterval(start);
+            sendScore();
+            boardDivs.eq(indexPlayer).removeClass(avatarClass);
+            playerScoreInfo.html("Congratulations <span class='playerInfo'>" + inputVal + "</span><br>Your score: <span class='playerInfo'> " + gg.score + "</span>");
+            playerLevelInfo.html("Level: <span class='playerInfo'> " + gg.level + "</span>");
+            playAgainButton.show();
+            mainScreenButton.show();
+            screnGameBoard.hide(600);
+            screenGameOver.show(600);
+        }
+    };
+
+    Game.prototype.oneStep = function() {
+        this.position(0, 0);
+        this.showPlayer();
+        this.coinCollision();
+        this.speedCollision();
+        this.nextLevel();
+        this.gameOver();
+    };
 
     function avatarSelect() {
         var avatars = screenStart.find('div.avatarsRow div');
@@ -63,6 +177,26 @@ document.addEventListener("DOMContentLoaded", function() {
         gg.showLevel.text(gg.level);
     }
 
+    function playSound(soundName, loop) {
+        if (isSoundOn) {
+            (soundName).play();
+        }
+    }
+
+    function playMusic(soundName, loop) {
+        if (isSoundOn) {
+            if (loop) {
+                (soundName).addEventListener('ended', function() {
+                    this.currentTime = 0;
+                    this.play();
+                }, false);
+                (soundName).play();
+            } else {
+                (soundName).play();
+            }
+        }
+    }
+
     startButton.click(function(e) {
         e.preventDefault();
         if (playerNameInput.val().length < 1) {
@@ -78,7 +212,28 @@ document.addEventListener("DOMContentLoaded", function() {
             }, 300);
             $('#error').text('');
         }
+    });
 
+    musicSwitch.on('click', function() {
+        musicSwitch.toggleClass('musicOf');
+        musicSwitch.find('i').toggleClass('icon-volume-off');
+        if (musicSwitch.hasClass('musicOf')) {
+            isMusicOn = false;
+            mainMusic.muted = true;
+        } else {
+            isMusicOn = true;
+            mainMusic.muted = false;
+        }
+    });
+
+    soundSwitch.on('click', function() {
+        soundSwitch.toggleClass('musicOf');
+        soundSwitch.find('i').toggleClass('icon-volume-off');
+        if (soundSwitch.hasClass('musicOf')) {
+            isSoundOn = false;
+        } else {
+            isSoundOn = true;
+        }
     });
 
     mainScreenButton.click(function() {
@@ -99,17 +254,31 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 300);
     });
 
-    function insertContent(scores) {
-        $.each(scores, function(indexTable, score) {
-            var newTd = $('<td>');
-            var newTd2 = $('<td>');
-            var newTr = $('<tr class="addedRow">');
-            newTd2.append(scores[indexTable][1]);
-            newTd.append(scores[indexTable][0]);
-            newTr.append(newTd2);
-            newTr.append(newTd);
-            bestResultsTable.append(newTr);
-        });
+    function showSpeedIcon() {
+        var arrayWallId = [];
+        for (var i = 0; i < boardDivs.length; i++) {
+            if (!boardDivs.eq(i).hasClass('wall') && i != 60) {
+                arrayWallId.push(i);
+            }
+        }
+        var randomIndex = Math.floor(Math.random() * arrayWallId.length);
+        $(boardDivs.eq(arrayWallId[randomIndex])).removeClass('coin');
+        $(boardDivs.eq(arrayWallId[randomIndex])).addClass('speed');
+    }
+
+    function showCoinIcon() {
+        for (var i = 0; i < gg.board.length; i++) {
+            if (!$(gg.board.eq(i)).hasClass('wall') && i != 60) {
+                $(gg.board.eq(i)).addClass('coin');
+            }
+        }
+    }
+
+    function randomWall() {
+        var divs = $('div.wall', board);
+        var walls = ['wall1.png', 'wall2.png', 'wall3.png', 'wall4.png', 'wall5.png', 'wall6.png', 'wall7.png', 'wall8.png', 'wall9.png', 'wall10.png', 'wall11.png', 'wall12.png', 'wall13.png'];
+
+        divs.css("backgroundImage", "url(images/walls/" + walls[Math.floor(Math.random() * walls.length)] + " )");
     }
 
     function sendScore() {
@@ -137,131 +306,17 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    var Player = function(x, y, direction) {
-        this.x = 0;
-        this.y = 0;
-        this.direction = direction;
-    };
-
-    var Game = function() {
-        this.board = boardDivs;
-        this.player = new Player(0, 0, '');
-        this.showScore = $('#scoreVal');
-        this.score = 0;
-        this.showLevel = $('#levelVal');
-        this.level = 1;
-        self = this;
-    };
-
-    function showSpeedIcon() {
-        var arrayWallId = [];
-        for (var i = 0; i < boardDivs.length; i++) {
-            if (!boardDivs.eq(i).hasClass('wall') && i != 60) {
-                arrayWallId.push(i);
-            }
-        }
-        var randomIndex = Math.floor(Math.random() * arrayWallId.length);
-        $(boardDivs.eq(arrayWallId[randomIndex])).removeClass('coin');
-        $(boardDivs.eq(arrayWallId[randomIndex])).addClass('speed');
-    }
-
-    Game.prototype.speedCollision = function() {
-        if ($(this.board.eq(indexPlayer)).hasClass('speed')) {
-            $(this.board.eq(indexPlayer)).removeClass('speed');
-            gameSpeed -= (gameSpeed * 0.2);
-            clearInterval(start);
-            start = setInterval(function() {
-                self.oneStep();
-            }, gameSpeed);
-            speedSound.play();
-        }
-    };
-
-    Game.prototype.position = function(x, y) {
-        if (this.player.direction == 'right') {
-            x += 1;
-        } else if (this.player.direction == 'left') {
-            x -= 1;
-        } else if (this.player.direction == 'up') {
-            y -= 1;
-        } else if (this.player.direction == 'down') {
-            y += 1;
-        }
-        indexPlayer += x + y * 11;
-    };
-
-    function showCoinIcon() {
-        for (var i = 0; i < gg.board.length; i++) {
-            if (!$(gg.board.eq(i)).hasClass('wall') && i != 60) {
-                $(gg.board.eq(i)).addClass('coin');
-            }
-        }
-    }
-
-    Game.prototype.showPlayer = function() {
-        for (var i = 0; i < this.board.length; i++) {
-            $(this.board.eq(i)).removeClass(avatarClass);
-        }
-        $(this.board.eq(indexPlayer)).addClass(avatarClass);
-    };
-
-    Game.prototype.moveDirection = function(event) {
-        if (event.which == 37) {
-            self.player.direction = 'left';
-        } else if (event.which == 38) {
-            self.player.direction = 'up';
-        } else if (event.which == 39) {
-            self.player.direction = 'right';
-        } else if (event.which == 40) {
-            self.player.direction = 'down';
-        }
-    };
-
-    Game.prototype.coinCollision = function() {
-        if ($(this.board.eq(indexPlayer)).hasClass('coin')) {
-            $(this.board.eq(indexPlayer)).removeClass('coin');
-            this.score += 1;
-            this.showScore.text(this.score);
-            coinSound.play();
-        }
-    };
-
-    Game.prototype.gameOver = function() {
-        var tempWall = 0;
-        var inputVal = playerNameInput.val();
-
-        if ($(this.board.eq(indexPlayer)).hasClass('wall')) {
-            clearInterval(start);
-            sendScore();
-            boardDivs.eq(indexPlayer).removeClass(avatarClass);
-            playerScoreInfo.html("Congratulations <span class='playerInfo'>" + inputVal + "</span><br>Your score: <span class='playerInfo'> " + gg.score + "</span>");
-            playerLevelInfo.html("Level: <span class='playerInfo'> " + gg.level + "</span>");
-            playAgainButton.show();
-            mainScreenButton.show();
-            screnGameBoard.hide(600);
-            screenGameOver.show(600);
-        }
-    };
-
-    Game.prototype.nextLevel = function() {
-        var arrayItemsTemp = [];
-
-        for (var i = 0; i < boardDivs.length; i++) {
-            if (boardDivs.eq(i).hasClass('coin') || boardDivs.eq(i).hasClass('speed')) {
-                arrayItemsTemp.push(i);
-            }
-        }
-        if (arrayItemsTemp.length === 0) {
-            boardDivs.eq(indexPlayer).removeClass(avatarClass);
-            cubeAnimate();
-        }
-    };
-
-    function randomWall() {
-        var divs = $('div.wall', board);
-        var walls = ['wall1.png', 'wall2.png', 'wall3.png', 'wall4.png', 'wall5.png', 'wall6.png', 'wall7.png', 'wall8.png', 'wall9.png', 'wall10.png', 'wall11.png', 'wall12.png', 'wall13.png'];
-
-        divs.css("backgroundImage", "url(images/walls/" + walls[Math.floor(Math.random() * walls.length)] + " )");
+    function insertContent(scores) {
+        $.each(scores, function(indexTable, score) {
+            var newTd = $('<td>');
+            var newTd2 = $('<td>');
+            var newTr = $('<tr class="addedRow">');
+            newTd2.append(scores[indexTable][1]);
+            newTd.append(scores[indexTable][0]);
+            newTr.append(newTd2);
+            newTr.append(newTd);
+            bestResultsTable.append(newTr);
+        });
     }
 
     function cubeAnimate() {
@@ -269,13 +324,13 @@ document.addEventListener("DOMContentLoaded", function() {
         var cubeAnimationClass = arrayCubeAnimations[Math.floor(Math.random() * arrayCubeAnimations.length)];
         var tempClass = cube.attr('class');
 
-        cube.removeClass(cube.attr('class'));
+        cube.removeClass(tempClass);
         while (cubeAnimationClass === tempClass) {
             cubeAnimationClass = arrayCubeAnimations[Math.floor(Math.random() * arrayCubeAnimations.length)];
         }
         window.removeEventListener('keydown', direction);
         cube.addClass(cubeAnimationClass);
-        nextLevelSound.play();
+        playSound(nextLevelSound);
         cubeSide = $('#' + cubeAnimationClass);
         boardDivs = cubeSide.find('div');
         gg.board = boardDivs;
@@ -304,15 +359,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 3000);
     }
 
-    Game.prototype.oneStep = function() {
-        this.position(0, 0);
-        this.showPlayer();
-        this.coinCollision();
-        this.speedCollision();
-        this.nextLevel();
-        this.gameOver();
-    };
-
     var start = setInterval(function() {
         self.oneStep();
     }, gameSpeed);
@@ -320,6 +366,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var gg = new Game();
     showSpeedIcon();
     avatarSelect();
+    playMusic(mainMusic, true);
 
     window.addEventListener('keydown', direction);
 

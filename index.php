@@ -7,11 +7,12 @@
     <title>Coder-Man Game</title>
     <link rel="stylesheet" href="css/reset.css" media="screen" title="no title">
     <link rel="stylesheet" href="main.nested.css" media="screen" title="no title">
+    <link rel="stylesheet" href="css/fontello.css" media="screen" title="no title">
 </head>
 
 <body>
 
-    <audio src="sounds/main.mp3" loop autoplay></audio>
+    <!-- <audio src="sounds/main.mp3" loop autoplay></audio> -->
     <section id="startGame">
         <div class="container">
             <header>
@@ -70,9 +71,11 @@
             </div>
             <div class="clear"></div>
             <footer>
+                <p id="music">MUSIC: <i class="icon-volume"></i></p>
                 <button id="startButton">
                     <span>START</span>
                 </button>
+                <p id="sound">SOUND: <i class="icon-volume"></i></p>
             </footer>
         </div>
     </section>
