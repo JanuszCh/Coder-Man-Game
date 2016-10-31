@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     var indexPlayer = 60;
-    var board = $('.board');
-    var cubeSide = $('#showFront');
-    var boardDivs = cubeSide.find('div');
-    var cube = $('#cube');
     var screenStart = $('#startGame');
-    var screenGameOver = $('#gameOver');
     var screnGameBoard = $('#screnGameBoard');
+    var screenGameOver = $('#gameOver');
+    var cube = screnGameBoard.find('#cube');
+    var cubeSide = $('#showFront');
+    var board = cube.find('.board');
+    var boardDivs = cubeSide.find('div');
     var playerNameInput = screenStart.find('#playerName');
     var startButton = screenStart.find('#startButton');
     var playerScoreInfo = screenGameOver.find("p.playerScoreInfo");
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
         gg.board = boardDivs;
         cube.attr('class', 'showFront');
 
-        // showCoinIcon();
+        showCoinIcon();
         showSpeedIcon();
         randomWall();
         gg.player.direction = "";
@@ -228,7 +228,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     Game.prototype.gameOver = function() {
         var tempWall = 0;
-
         var inputVal = playerNameInput.val();
 
         if ($(this.board.eq(indexPlayer)).hasClass('wall')) {
@@ -291,7 +290,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 $(boardDivs.eq(i)).removeClass('speed');
             }
         }
-        // showCoinIcon();
+        showCoinIcon();
         showSpeedIcon();
         randomWall();
         gg.player.direction = "";
