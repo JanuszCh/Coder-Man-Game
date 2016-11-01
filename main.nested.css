@@ -1,10 +1,10 @@
 @font-face {
   font-family: delusion;
-  src: url(fonts/delusion.ttf); }
+  src: url(fonts/delusion.ttf) format("truetype"); }
 
 @font-face {
   font-family: charlie;
-  src: url(fonts/charlie_brown_m54.ttf); }
+  src: url(fonts/charlie_brown_m54.ttf) format("truetype"); }
 
 .avatar1 {
   background-image: url("images/avatars/avatar (1).png");
@@ -246,7 +246,7 @@ body {
         width: 24.6vh;
         color: white;
         z-index: 2;
-        font-family: charlie, Arial, sans-serif; }
+        font-family: 'charlie', Arial, sans-serif; }
         body #screnGameBoard div.flex .level #levelVal,
         body #screnGameBoard div.flex .level #scoreVal,
         body #screnGameBoard div.flex .score #levelVal,
@@ -286,7 +286,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: charlie, Arial, sans-serif; }
+  font-family: 'charlie', Arial, sans-serif; }
   #startGame div.container {
     width: 1000px;
     height: 90vh;
@@ -301,7 +301,7 @@ body {
       align-items: center;
       justify-content: center; }
       #startGame div.container header div {
-        font-family: delusion, Arial, sans-serif;
+        font-family: 'delusion', Arial, sans-serif;
         font-size: 70px; }
     #startGame div.container div.manual {
       width: 50%;
@@ -324,7 +324,7 @@ body {
       justify-content: center;
       flex-wrap: wrap; }
       #startGame div.container div.player input {
-        font-family: charlie, Arial, sans-serif;
+        font-family: 'charlie', Arial, sans-serif;
         background-color: #0f182b;
         color: #48e5f9;
         border: none;
@@ -392,7 +392,7 @@ body {
       border-radius: 20px;
       color: white;
       font-size: 40px;
-      font-family: charlie, arial, sans-serif;
+      font-family: 'charlie', arial, sans-serif;
       outline: 0;
       display: flex;
       align-items: center;
@@ -411,7 +411,7 @@ body {
   background-color: #0f182b;
   height: 100vh;
   color: white;
-  font-family: charlie, Arial, sans-serif;
+  font-family: 'charlie', Arial, sans-serif;
   display: none; }
   #gameOver div.flex {
     height: 100vh;
@@ -498,7 +498,7 @@ body {
           border-radius: 20px;
           color: white;
           font-size: 40px;
-          font-family: charlie, arial, sans-serif;
+          font-family: 'charlie', arial, sans-serif;
           outline: 0;
           display: flex;
           align-items: center;

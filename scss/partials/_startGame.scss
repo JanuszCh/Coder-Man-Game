@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: charlie, Arial, sans-serif;
+    font-family: 'charlie', Arial, sans-serif;
 
     div.container {
         width: 1000px;
@@ -25,7 +25,7 @@
             justify-content: center;
 
             div {
-                font-family: delusion, Arial, sans-serif;
+                font-family: 'delusion', Arial, sans-serif;
                 font-size: 70px;
             }
         }
@@ -56,7 +56,7 @@
             flex-wrap: wrap;
 
             input {
-                font-family: charlie, Arial, sans-serif;
+                font-family: 'charlie', Arial, sans-serif;
                 background-color: $backgroundColor;
                 color: $mainColor;
                 border: none;
@@ -161,7 +161,7 @@
             border-radius: 20px;
             color: white;
             font-size: 40px;
-            font-family: charlie, arial, sans-serif;
+            font-family: 'charlie', arial, sans-serif;
             outline: 0;
             display: flex;
             align-items: center;
