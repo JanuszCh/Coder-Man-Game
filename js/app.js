@@ -205,6 +205,7 @@ document.addEventListener("DOMContentLoaded", function() {
             $('#error').text('Choose avatar!');
         } else {
             $(this).hide(300);
+            // setCookie(playerName, playerNameInput.val(), 1); //jak dac name nam cookie?
             startingSequence();
             setTimeout(function() {
                 screenStart.hide(600);
@@ -282,41 +283,38 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function sendScore() {
+        var scores = [];
         var nameVal = playerNameInput.val();
         var scoreVal = gg.score;
 
-        //działa ale wczytuje wszystkie cookie jakie sa - zastanowic sie jaka metode wybrac php/js
-        // document.cookie = nameVal;
-        // var inputName = document.cookie;
-        // console.log(inputName);
-        // playerNameInput.val(inputName);
+        firebase.database().ref('scores').once('value', function(snapshot) {
+            scores = snapshot.val() || [];
+            scores.push({
+                'playerScore': scoreVal,
+                'playerName': nameVal
+            });
+            firebase.database().ref('scores').set(scores);
 
-        $.ajax({
-            url: 'score.php',
-            type: 'GET',
-            dataType: 'json',
-            data: {
-                name: nameVal,
-                score: scoreVal
+            function compare(a, b) {
+                return b.playerScore - a.playerScore;
             }
-        }).done(function(response) {
-            insertContent(response);
-        }).fail(function(error) {
-            console.log(error);
+            scores.sort(compare);
+
+            insertContent(scores);
         });
     }
 
     function insertContent(scores) {
-        $.each(scores, function(indexTable, score) {
+        for (var i = 0; i < 10; i++) {
             var newTd = $('<td>');
             var newTd2 = $('<td>');
             var newTr = $('<tr class="addedRow">');
-            newTd2.append(scores[indexTable][1]);
-            newTd.append(scores[indexTable][0]);
+            newTd2.append(scores[i].playerName);
+            newTd.append(scores[i].playerScore);
             newTr.append(newTd2);
             newTr.append(newTd);
             bestResultsTable.append(newTr);
-        });
+        }
     }
 
     function cubeAnimate() {
