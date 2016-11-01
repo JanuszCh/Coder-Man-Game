@@ -238,7 +238,6 @@ body {
         width: 24.6vh;
         color: white;
         z-index: 2;
-        position: absolute;
         font-family: charlie, Arial, sans-serif; }
         body #screnGameBoard div.flex .level #levelVal,
         body #screnGameBoard div.flex .level #scoreVal,
@@ -250,10 +249,6 @@ body {
           width: 24.6vh;
           text-align: center;
           color: #48e5f9; }
-      body #screnGameBoard div.flex .score {
-        margin-left: -58.63vh; }
-      body #screnGameBoard div.flex .level {
-        margin-left: 58.63vh; }
       body #screnGameBoard div.flex .board {
         width: 90.2vh; }
         body #screnGameBoard div.flex .board div {

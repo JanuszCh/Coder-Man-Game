@@ -56,7 +56,6 @@
                         font-size: 150%;
                         font-weight: 400;
                         border-bottom: 5px solid $mainColor;
-
                         vertical-align: middle;
                     }
 
@@ -64,10 +63,10 @@
                         border-bottom: 1px solid $mainColor;
                         vertical-align: middle;
                     }
+
                     .addedRow {
                         font-size: 130%;
                     }
-
                 }
             }
 
@@ -79,7 +78,7 @@
                 display: flex;
                 align-content: center;
                 justify-content: center;
-                flex-wrap: wrap;                
+                flex-wrap: wrap;
 
                 div {
                     margin: 0 auto;

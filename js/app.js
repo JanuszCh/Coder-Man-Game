@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var coinSound = new Audio('sounds/coin.mp3');
     var nextLevelSound = new Audio('sounds/next-level.mp3');
     var speedSound = new Audio('sounds/speed.mp3');
+    var gameOverSound = new Audio('sounds/game-over.mp3');
 
     var Player = function(x, y, direction) {
         this.x = 0;
@@ -119,6 +120,7 @@ document.addEventListener("DOMContentLoaded", function() {
             boardDivs.eq(indexPlayer).removeClass(avatarClass);
             playerScoreInfo.html("Congratulations <span class='playerInfo'>" + inputVal + "</span><br>Your score: <span class='playerInfo'> " + gg.score + "</span>");
             playerLevelInfo.html("Level: <span class='playerInfo'> " + gg.level + "</span>");
+            playSound(gameOverSound);
             playAgainButton.show();
             mainScreenButton.show();
             screnGameBoard.hide(600);
@@ -205,7 +207,6 @@ document.addEventListener("DOMContentLoaded", function() {
             $('#error').text('Choose avatar!');
         } else {
             $(this).hide(300);
-            // setCookie(playerName, playerNameInput.val(), 1); //jak dac name nam cookie?
             startingSequence();
             setTimeout(function() {
                 screenStart.hide(600);
