@@ -1,3 +1,11 @@
+@font-face {
+  font-family: delusion;
+  src: url("fonts/delusion.ttf"); }
+
+@font-face {
+  font-family: charlie;
+  src: url("fonts/charlie brown m54.ttf"); }
+
 .avatar1 {
   background-image: url("images/avatars/avatar (1).png");
   background-repeat: no-repeat;
@@ -501,13 +509,5 @@ body {
             border: 2px solid #48e5f9;
             color: #0f182b;
             cursor: pointer; }
-
-@font-face {
-  font-family: delusion;
-  src: url("fonts/delusion.ttf"); }
-
-@font-face {
-  font-family: charlie;
-  src: url("fonts/charlie brown m54.ttf"); }
 
 /*# sourceMappingURL=main.nested.css.map */
