@@ -1,10 +1,10 @@
 @font-face {
   font-family: delusion;
-  src: url(fonts/delusion.ttf) format("truetype"); }
+  src: url(fonts/DELUSION.TTF) format("truetype"); }
 
 @font-face {
   font-family: charlie;
-  src: url(fonts/charlie_brown_m54.ttf) format("truetype"); }
+  src: url(fonts/Charlie_Brown_M54.ttf) format("truetype"); }
 
 .avatar1 {
   background-image: url("images/avatars/avatar (1).png");
@@ -274,7 +274,7 @@ body {
         background-size: 35px;
         background-position: center; }
       body #screnGameBoard div.flex .speed {
-        background-image: url("images/speed.png");
+        background-image: url("images/Speed.png");
         background-repeat: no-repeat;
         background-size: 35px;
         background-position: center; }
