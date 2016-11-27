@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
-    <meta name="author" content="Janusz Chwastek">
     <title>Coder-Man Game</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Janusz Chwastek">
+    <meta name="description" content="Coder-Man is a simple variation Pac-Man">
+    <meta name="keywords" content="coder-man, pac-man, game">
     <link rel="stylesheet" href="css/reset.css" media="screen" title="no title">
     <link rel="stylesheet" href="main.nested.css" media="screen" title="no title">
     <link rel="stylesheet" href="css/fontello.css" media="screen" title="no title">
@@ -12,7 +15,7 @@
 
 <body>
 
-    <section id="startGame">
+    <section class="startGame">
         <div class="container">
             <header>
                 <div>CODER-MAN GAME</div>
@@ -23,6 +26,7 @@
                     <li>Collect all the items to go to the next Level.</li>
                     <li>Avoid the walls! The collision with the wall ends the game!</li>
                     <li>Each collected coin increases Your score.</li>
+                    <li>Collect diamond to get extra five points!</li>
                     <li>Find the Acceleration Item to increase your movement speed.</li>
                 </ul>
             </div>
@@ -30,7 +34,7 @@
                 <form action="index.html" method="get">
                     <input type="text" name="name" value="" placeholder="Your Name" id="playerName">
                 </form>
-                <p id="error"></p>
+                <p class="error"></p>
                 <div class="clear"></div>
                 <p class="avatar">Choose your avatar:</p>
                 <div class="avatars">
@@ -66,20 +70,20 @@
             </div>
             <div class="clear"></div>
             <footer>
-                <p id="music">MUSIC: <i class="icon-volume"></i></p>
-                <button id="startButton">
+                <p class="music">MUSIC: <i class="icon-volume"></i></p>
+                <button class="startButton">
                     <span>START</span>
                 </button>
-                <p id="sound">SOUND: <i class="icon-volume"></i></p>
+                <p class="sound">SOUND: <i class="icon-volume"></i></p>
             </footer>
         </div>
     </section>
 
-    <section id="screnGameBoard">
+    <section class="screnGameBoard">
         <div class="flex">
             <div class="score">
                 SCORE
-                <p id="scoreVal"></p>
+                <p class="scoreVal"></p>
             </div>
             <section class="containerCube">
                 <div id="cube" class="show-front">
@@ -830,12 +834,12 @@
             </section>
             <div class="level">
                 LEVEL
-                <p id="levelVal"></p>
+                <p class="levelVal"></p>
             </div>
         </div>
     </section>
 
-    <section id="gameOver">
+    <section class="gameOver">
         <div class="flex">
             <div class="container">
                 <header>
@@ -844,7 +848,7 @@
                     </div>
                 </header>
                 <div class="scoreTable">
-                    <table id="bestResults">
+                    <table class="bestResults">
                         <caption>TOP 10</caption>
                         <tr>
                             <th>
@@ -863,10 +867,10 @@
                 </div>
                 <div class="clear"></div>
                 <footer>
-                    <button id="mainScreenButton">
+                    <button class="mainScreenButton">
                     <span>MAIN SCREEN</span>
                 </button>
-                    <button id="playAgainButton">
+                    <button class="playAgainButton">
                     PLAY AGAIN
                 </button>
                 </footer>

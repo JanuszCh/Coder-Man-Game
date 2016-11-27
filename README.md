@@ -6,6 +6,7 @@ Probably everyone knows the legendary Pac-Man game. Coder-Man is a simple variat
 ### Features
 * Twenty avatars to choose
 * Six different mazes
+* Three different items to collect
 * Random choosing the maze
 * Thirteen colours of walls of the maze
 * Score table with ten best scores
@@ -23,6 +24,7 @@ Probably everyone knows the legendary Pac-Man game. Coder-Man is a simple variat
 * Collect all the Items to go to the next Level.
 * Avoid the walls! The collision with the wall ends the game!
 * Each collected coin increases Your score.
+* Collect diamond to get extra five points!
 * Find the Acceleration Item to increase your movement speed.
 
 ### Game demo

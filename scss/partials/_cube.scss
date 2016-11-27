@@ -35,108 +35,90 @@ body {
         }
     }
 
-    #cube .front {
+    .front {
         background: rgba(255, 0, 0, 0.7);
-    }
-
-    #cube .back {
-        background: rgba(255, 255, 0, 0.7);
-    }
-
-    #cube .right {
-        background: rgba(0, 255, 0, 0.7);
-    }
-
-    #cube .left {
-        background: rgba(0, 255, 255, 0.7);
-    }
-
-    #cube .top {
-        background: rgba(0, 0, 255, 0.7);
-    }
-
-    #cube .bottom {
-        background: rgba(255, 0, 255, 0.7);
-    }
-
-    #cube .front {
         -webkit-transform: translateZ( $boardSize / 2 );
         -moz-transform: translateZ( $boardSize / 2 );
         -o-transform: translateZ( $boardSize / 2 );
         transform: translateZ( $boardSize / 2 );
     }
 
-    #cube .back {
+    .back {
+        background: rgba(255, 255, 0, 0.7);
         -webkit-transform: rotateX( -180deg ) translateZ( $boardSize / 2 );
         -moz-transform: rotateX( -180deg ) translateZ( $boardSize / 2 );
         -o-transform: rotateX( -180deg ) translateZ( $boardSize / 2 );
         transform: rotateX( -180deg ) translateZ( $boardSize / 2 );
     }
 
-    #cube .right {
+    .right {
+        background: rgba(0, 255, 0, 0.7);
         -webkit-transform: rotateY( 90deg ) translateZ( $boardSize / 2 );
         -moz-transform: rotateY( 90deg ) translateZ( $boardSize / 2 );
         -o-transform: rotateY( 90deg ) translateZ( $boardSize / 2 );
         transform: rotateY( 90deg ) translateZ( $boardSize / 2 );
     }
 
-    #cube .left {
+    .left {
+        background: rgba(0, 255, 255, 0.7);
         -webkit-transform: rotateY( -90deg ) translateZ( $boardSize / 2 );
         -moz-transform: rotateY( -90deg ) translateZ( $boardSize / 2 );
         -o-transform: rotateY( -90deg ) translateZ( $boardSize / 2 );
         transform: rotateY( -90deg ) translateZ( $boardSize / 2 );
     }
 
-    #cube .top {
+    .top {
+        background: rgba(0, 0, 255, 0.7);
         -webkit-transform: rotateX( 90deg ) translateZ( $boardSize / 2 );
         -moz-transform: rotateX( 90deg ) translateZ( $boardSize / 2 );
         -o-transform: rotateX( 90deg ) translateZ( $boardSize / 2 );
         transform: rotateX( 90deg ) translateZ( $boardSize / 2 );
     }
 
-    #cube .bottom {
+    .bottom {
+        background: rgba(255, 0, 255, 0.7);
         -webkit-transform: rotateX( -90deg ) translateZ( $boardSize / 2 );
         -moz-transform: rotateX( -90deg ) translateZ( $boardSize / 2 );
         -o-transform: rotateX( -90deg ) translateZ( $boardSize / 2 );
         transform: rotateX( -90deg ) translateZ( $boardSize / 2 );
     }
 
-    #cube.showFront {
+    .showFront {
         -webkit-transform: translateZ( -$boardSize / 2 );
         -moz-transform: translateZ( -$boardSize / 2 );
         -o-transform: translateZ( -$boardSize / 2 );
         transform: translateZ( -$boardSize / 2 );
     }
 
-    #cube.showBack {
+    .showBack {
         -webkit-transform: translateZ( -$boardSize / 2 ) rotateX( -180deg );
         -moz-transform: translateZ( -$boardSize / 2 ) rotateX( -180deg );
         -o-transform: translateZ( -$boardSize / 2 ) rotateX( -180deg );
         transform: translateZ( -$boardSize / 2 ) rotateX( -180deg );
     }
 
-    #cube.showRight {
+    .showRight {
         -webkit-transform: translateZ( -$boardSize / 2 ) rotateY( -90deg );
         -moz-transform: translateZ( -$boardSize / 2 ) rotateY( -90deg );
         -o-transform: translateZ( -$boardSize / 2 ) rotateY( -90deg );
         transform: translateZ( -$boardSize / 2 ) rotateY( -90deg );
     }
 
-    #cube.showLeft {
+    .showLeft {
         -webkit-transform: translateZ( -$boardSize / 2 ) rotateY( 90deg );
         -moz-transform: translateZ( -$boardSize / 2 ) rotateY( 90deg );
         -o-transform: translateZ( -$boardSize / 2 ) rotateY( 90deg );
         transform: translateZ( -$boardSize / 2 ) rotateY( 90deg );
     }
 
-    #cube.showTop {
+    .showTop {
         -webkit-transform: translateZ( -$boardSize / 2 ) rotateX( -90deg );
         -moz-transform: translateZ( -$boardSize / 2 ) rotateX( -90deg );
         -o-transform: translateZ( -$boardSize / 2 ) rotateX( -90deg );
         transform: translateZ( -$boardSize / 2 ) rotateX( -90deg );
     }
 
-    #cube.showBottom {
+    .showBottom {
         -webkit-transform: translateZ( -$boardSize / 2 ) rotateX( 90deg );
         -moz-transform: translateZ( -$boardSize / 2 ) rotateX( 90deg );
         -o-transform: translateZ( -$boardSize / 2 ) rotateX( 90deg );

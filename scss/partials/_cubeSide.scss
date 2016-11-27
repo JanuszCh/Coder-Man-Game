@@ -3,7 +3,7 @@
 body {
     background-color: $backgroundColor;
 
-    #screnGameBoard {
+    .screnGameBoard {
         height: 100vh;
         display: none;
 
@@ -24,8 +24,8 @@ body {
                 z-index: 2;
                 font-family: 'charlie', Arial, sans-serif;
 
-                #levelVal,
-                #scoreVal {
+                .levelVal,
+                .scoreVal {
                     font-size: 40px;
                     font-weight: 800;
                     display: block;
@@ -60,7 +60,13 @@ body {
             }
 
             .speed {
-                background-image: url('images/Speed.png');
+                background-image: url('images/speed.png');
+                background-repeat: no-repeat;
+                background-size: 35px;
+                background-position: center;
+            }
+            .diamond {
+                background-image: url('images/diamond.png');
                 background-repeat: no-repeat;
                 background-size: 35px;
                 background-position: center;

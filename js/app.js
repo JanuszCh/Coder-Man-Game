@@ -1,22 +1,23 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     var indexPlayer = 60;
-    var screenStart = $('#startGame');
-    var screnGameBoard = $('#screnGameBoard');
-    var screenGameOver = $('#gameOver');
+    var screenStart = $('.startGame');
+    var screnGameBoard = $('.screnGameBoard');
+    var screenGameOver = $('.gameOver');
     var cube = screnGameBoard.find('#cube');
     var cubeSide = $('#showFront');
     var board = cube.find('.board');
     var boardDivs = cubeSide.find('div');
     var playerNameInput = screenStart.find('#playerName');
-    var startButton = screenStart.find('#startButton');
-    var musicSwitch = screenStart.find('#music');
-    var soundSwitch = screenStart.find('#sound');
+    var startButton = screenStart.find('.startButton');
+    var error = screenStart.find('.error');
+    var musicSwitch = screenStart.find('.music');
+    var soundSwitch = screenStart.find('.sound');
     var playerScoreInfo = screenGameOver.find("p.playerScoreInfo");
     var playerLevelInfo = screenGameOver.find('p.playerLevelInfo');
-    var bestResultsTable = screenGameOver.find('div.scoreTable #bestResults');
-    var playAgainButton = screenGameOver.find('#playAgainButton');
-    var mainScreenButton = screenGameOver.find('#mainScreenButton');
+    var bestResultsTable = screenGameOver.find('.bestResults');
+    var playAgainButton = screenGameOver.find('.playAgainButton');
+    var mainScreenButton = screenGameOver.find('.mainScreenButton');
     var avatarClass = "";
     var gameSpeed = 500;
     var isSoundOn = true;
@@ -25,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var coinSound = new Audio('sounds/coin.mp3');
     var nextLevelSound = new Audio('sounds/next-level.mp3');
     var speedSound = new Audio('sounds/speed.mp3');
+    var diamondSound = new Audio('sounds/diamond.mp3');
     var gameOverSound = new Audio('sounds/game-over.mp3');
 
     var Player = function(x, y, direction) {
@@ -36,9 +38,9 @@ document.addEventListener("DOMContentLoaded", function() {
     var Game = function() {
         this.board = boardDivs;
         this.player = new Player(0, 0, '');
-        this.showScore = $('#scoreVal');
+        this.showScore = $('.scoreVal');
         this.score = 0;
-        this.showLevel = $('#levelVal');
+        this.showLevel = $('.levelVal');
         this.level = 1;
         self = this;
     };
@@ -75,6 +77,15 @@ document.addEventListener("DOMContentLoaded", function() {
         indexPlayer += x + y * 11;
     };
 
+    Game.prototype.coinCollision = function() {
+        if ($(this.board.eq(indexPlayer)).hasClass('coin')) {
+            $(this.board.eq(indexPlayer)).removeClass('coin');
+            this.score += 1;
+            this.showScore.text(this.score);
+            playSound(coinSound);
+        }
+    };
+
     Game.prototype.speedCollision = function() {
         if ($(this.board.eq(indexPlayer)).hasClass('speed')) {
             $(this.board.eq(indexPlayer)).removeClass('speed');
@@ -87,12 +98,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 
-    Game.prototype.coinCollision = function() {
-        if ($(this.board.eq(indexPlayer)).hasClass('coin')) {
-            $(this.board.eq(indexPlayer)).removeClass('coin');
-            this.score += 1;
+    Game.prototype.diamondCollision = function() {
+        if ($(this.board.eq(indexPlayer)).hasClass('diamond')) {
+            $(this.board.eq(indexPlayer)).removeClass('diamond');
+            this.score += 5;
             this.showScore.text(this.score);
-            playSound(coinSound);
+            playSound(diamondSound);
         }
     };
 
@@ -111,7 +122,6 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     Game.prototype.gameOver = function() {
-        var tempWall = 0;
         var inputVal = playerNameInput.val();
 
         if ($(this.board.eq(indexPlayer)).hasClass('wall')) {
@@ -133,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function() {
         this.showPlayer();
         this.coinCollision();
         this.speedCollision();
+        this.diamondCollision();
         this.nextLevel();
         this.gameOver();
     };
@@ -153,8 +164,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function startingSequence() {
         for (var i = 0; i < boardDivs.length; i++) {
-            $(boardDivs.eq(i)).removeClass('speed');
             $(boardDivs.eq(i)).removeClass('coin');
+            $(boardDivs.eq(i)).removeClass('speed');
+            $(boardDivs.eq(i)).removeClass('diamond');
         }
         cubeSide = $('#showFront');
         boardDivs = cubeSide.find('div');
@@ -163,6 +175,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         showCoinIcon();
         showSpeedIcon();
+        showDiamondIcon();
         randomWall();
         gg.player.direction = "";
         gg.score = 0;
@@ -186,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function playMusic(soundName, loop) {
-        if (isSoundOn) {
+        if (isMusicOn) {
             if (loop) {
                 (soundName).addEventListener('ended', function() {
                     this.currentTime = 0;
@@ -202,9 +215,11 @@ document.addEventListener("DOMContentLoaded", function() {
     startButton.click(function(e) {
         e.preventDefault();
         if (playerNameInput.val().length < 1) {
-            $('#error').text('Enter Your name!');
+            error.text('Enter Your name!');
+        } else if (playerNameInput.val().length > 17) {
+            error.text('Your name is too long!');
         } else if (avatarClass.length < 1) {
-            $('#error').text('Choose avatar!');
+            error.text('Choose avatar!');
         } else {
             $(this).hide(300);
             startingSequence();
@@ -212,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 screenStart.hide(600);
                 screnGameBoard.show(600);
             }, 300);
-            $('#error').text('');
+            error.text('');
         }
     });
 
@@ -229,9 +244,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     soundSwitch.on('click', function() {
-        soundSwitch.toggleClass('musicOf');
+        soundSwitch.toggleClass('soundOf');
         soundSwitch.find('i').toggleClass('icon-volume-off');
-        if (soundSwitch.hasClass('musicOf')) {
+        if (soundSwitch.hasClass('soundOf')) {
             isSoundOn = false;
         } else {
             isSoundOn = true;
@@ -256,6 +271,14 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 300);
     });
 
+    function showCoinIcon() {
+        for (var i = 0; i < gg.board.length; i++) {
+            if (!$(gg.board.eq(i)).hasClass('wall') && i != 60) {
+                $(gg.board.eq(i)).addClass('coin');
+            }
+        }
+    }
+
     function showSpeedIcon() {
         var arrayWallId = [];
         for (var i = 0; i < boardDivs.length; i++) {
@@ -268,12 +291,22 @@ document.addEventListener("DOMContentLoaded", function() {
         $(boardDivs.eq(arrayWallId[randomIndex])).addClass('speed');
     }
 
-    function showCoinIcon() {
-        for (var i = 0; i < gg.board.length; i++) {
-            if (!$(gg.board.eq(i)).hasClass('wall') && i != 60) {
-                $(gg.board.eq(i)).addClass('coin');
+    function showDiamondIcon() {
+        var arrayWallId = [];
+
+        for (var i = 0; i < boardDivs.length; i++) {
+            if (!boardDivs.eq(i).hasClass('wall') && i != 60) {
+                arrayWallId.push(i);
             }
         }
+
+        var randomIndex = Math.floor(Math.random() * arrayWallId.length);
+        while ($(boardDivs.eq(arrayWallId[randomIndex])).hasClass('speed')) {
+            randomIndex = Math.floor(Math.random() * arrayWallId.length);
+        }
+
+        $(boardDivs.eq(arrayWallId[randomIndex])).removeClass('coin');
+        $(boardDivs.eq(arrayWallId[randomIndex])).addClass('diamond');
     }
 
     function randomWall() {
@@ -346,6 +379,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         showCoinIcon();
         showSpeedIcon();
+        showDiamondIcon();
         randomWall();
         gg.player.direction = "";
         indexPlayer = 60;

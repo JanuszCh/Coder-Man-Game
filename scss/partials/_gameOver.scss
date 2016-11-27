@@ -1,6 +1,6 @@
 @import "../modules/variables";
 
-#gameOver {
+.gameOver {
     background-color: $backgroundColor;
     height: 100vh;
     color: white;
@@ -45,7 +45,7 @@
                     text-align: center;
                 }
 
-                #bestResults {
+                .bestResults {
                     height: 90%;
                     margin: 0 auto;
                     width: 75%;
@@ -110,8 +110,8 @@
                 align-items: center;
                 justify-content: center;
 
-                #mainScreenButton,
-                #playAgainButton {
+                .mainScreenButton,
+                .playAgainButton {
                     width: 45%;
                     height: 80%;
                     margin: 0 auto;
