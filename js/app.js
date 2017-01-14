@@ -1,23 +1,23 @@
-document.addEventListener("DOMContentLoaded", function() {
+$(function() {
 
     var indexPlayer = 60;
-    var screenStart = $('.startGame');
-    var screnGameBoard = $('.screnGameBoard');
-    var screenGameOver = $('.gameOver');
-    var cube = screnGameBoard.find('#cube');
+    var screenStart = $('#startGame');
+    var screenGameBoard = $('#screenGameBoard');
+    var screenGameOver = $('#gameOver');
+    var cube = screenGameBoard.find('#cube');
     var cubeSide = $('#showFront');
     var board = cube.find('.board');
     var boardDivs = cubeSide.find('div');
     var playerNameInput = screenStart.find('#playerName');
-    var startButton = screenStart.find('.startButton');
-    var error = screenStart.find('.error');
-    var musicSwitch = screenStart.find('.music');
-    var soundSwitch = screenStart.find('.sound');
-    var playerScoreInfo = screenGameOver.find("p.playerScoreInfo");
-    var playerLevelInfo = screenGameOver.find('p.playerLevelInfo');
-    var bestResultsTable = screenGameOver.find('.bestResults');
-    var playAgainButton = screenGameOver.find('.playAgainButton');
-    var mainScreenButton = screenGameOver.find('.mainScreenButton');
+    var startButton = screenStart.find('#startButton');
+    var error = screenStart.find('#validationError');
+    var musicSwitch = screenStart.find('#music');
+    var soundSwitch = screenStart.find('#sound');
+    var playerScoreInfo = screenGameOver.find("#playerScoreInfo");
+    var playerLevelInfo = screenGameOver.find('#playerLevelInfo');
+    var bestResultsTable = screenGameOver.find('#bestResults');
+    var playAgainButton = screenGameOver.find('#playAgainButton');
+    var mainScreenButton = screenGameOver.find('#mainScreenButton');
     var avatarClass = "";
     var gameSpeed = 500;
     var isSoundOn = true;
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function() {
             playSound(gameOverSound);
             playAgainButton.show();
             mainScreenButton.show();
-            screnGameBoard.hide(600);
+            screenGameBoard.hide(600);
             screenGameOver.show(600);
         }
     };
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function avatarSelect() {
         var avatars = screenStart.find('div.avatarsRow div');
-        $(screenGameOver.find('.scorePlayer div:first-child')).attr('class', avatarClass);
+        $(screenGameOver.find('#playerAvatar')).attr('class', avatarClass);
         avatars.click(function() {
             for (var i = 0; i < avatars.length; i++) {
                 $(avatars.eq(i)).removeAttr('style');
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function() {
             $(this).css('border', '2px solid #48e5f9');
             avatarClass = $(this).attr('class');
             boardDivs.eq(60).attr('class', avatarClass);
-            $(screenGameOver.find('.scorePlayer div:first-child')).attr('class', avatarClass);
+            $(screenGameOver.find('#playerAvatar')).attr('class', avatarClass);
         });
     }
 
@@ -214,7 +214,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     startButton.click(function(e) {
         e.preventDefault();
-        if (playerNameInput.val().length < 1) {
+        if ($.trim(playerNameInput.val()).length < 1) {
             error.text('Enter Your name!');
         } else if (playerNameInput.val().length > 17) {
             error.text('Your name is too long!');
@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function() {
             startingSequence();
             setTimeout(function() {
                 screenStart.hide(600);
-                screnGameBoard.show(600);
+                screenGameBoard.show(600);
             }, 300);
             error.text('');
         }
@@ -267,7 +267,7 @@ document.addEventListener("DOMContentLoaded", function() {
         startingSequence();
         setTimeout(function() {
             screenGameOver.hide(600);
-            screnGameBoard.show(600);
+            screenGameBoard.show(600);
         }, 300);
     });
 
@@ -340,8 +340,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function insertContent(scores) {
         for (var i = 0; i < 10; i++) {
-            var newTd = $('<td>');
-            var newTd2 = $('<td>');
+            var newTd = $('<td class="tableData">');
+            var newTd2 = $('<td class="tableData">');
             var newTr = $('<tr class="addedRow">');
             newTd2.append(scores[i].playerName);
             newTd.append(scores[i].playerScore);

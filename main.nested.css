@@ -223,17 +223,17 @@ body {
 
 body {
   background-color: #0f182b; }
-  body .screnGameBoard {
+  body .screenGameBoard {
     height: 100vh;
     display: none; }
-    body .screnGameBoard div.flex {
+    body .screenGameBoard .flex {
       height: 100vh;
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center; }
-      body .screnGameBoard div.flex .level,
-      body .screnGameBoard div.flex .score {
+      body .screenGameBoard .flex .level,
+      body .screenGameBoard .flex .score {
         display: block;
         text-align: center;
         font-size: 30px;
@@ -241,38 +241,38 @@ body {
         color: white;
         z-index: 2;
         font-family: 'charlie', Arial, sans-serif; }
-        body .screnGameBoard div.flex .level .levelVal,
-        body .screnGameBoard div.flex .level .scoreVal,
-        body .screnGameBoard div.flex .score .levelVal,
-        body .screnGameBoard div.flex .score .scoreVal {
+        body .screenGameBoard .flex .level .levelVal,
+        body .screenGameBoard .flex .level .scoreVal,
+        body .screenGameBoard .flex .score .levelVal,
+        body .screenGameBoard .flex .score .scoreVal {
           font-size: 40px;
           font-weight: 800;
           display: block;
           width: 24.6vh;
           text-align: center;
           color: #48e5f9; }
-      body .screnGameBoard div.flex .board {
+      body .screenGameBoard .flex .board {
         width: 90.2vh; }
-        body .screnGameBoard div.flex .board div {
+        body .screenGameBoard .flex .board div {
           width: 8.2vh;
           height: 8.2vh;
           float: left; }
-        body .screnGameBoard div.flex .board div.wall {
+        body .screenGameBoard .flex .board .wall {
           background-color: gray;
           background-repeat: no-repeat;
           background-size: contain;
           border: 1px solid black; }
-      body .screnGameBoard div.flex .coin {
+      body .screenGameBoard .flex .coin {
         background-image: url("images/coin.png");
         background-repeat: no-repeat;
         background-size: 35px;
         background-position: center; }
-      body .screnGameBoard div.flex .speed {
+      body .screenGameBoard .flex .speed {
         background-image: url("images/Speed.png");
         background-repeat: no-repeat;
         background-size: 35px;
         background-position: center; }
-      body .screnGameBoard div.flex .diamond {
+      body .screenGameBoard .flex .diamond {
         background-image: url("images/diamond.png");
         background-repeat: no-repeat;
         background-size: 35px;
@@ -286,23 +286,23 @@ body {
   align-items: center;
   justify-content: center;
   font-family: 'charlie', Arial, sans-serif; }
-  .startGame div.container {
+  .startGame .container {
     width: 1000px;
     height: 90vh;
     border: 5px solid white;
     border-radius: 40px;
     margin: 0 auto;
     padding: 20px; }
-    .startGame div.container header {
+    .startGame .container .header {
       width: 100%;
       height: 15%;
       display: flex;
       align-items: center;
       justify-content: center; }
-      .startGame div.container header div {
+      .startGame .container .header .logo {
         font-family: 'delusion', Arial, sans-serif;
         font-size: 70px; }
-    .startGame div.container div.manual {
+    .startGame .container .manualContainer {
       width: 50%;
       height: 70%;
       padding: 20px;
@@ -311,9 +311,9 @@ body {
       display: flex;
       align-items: center;
       justify-content: center; }
-      .startGame div.container div.manual ul {
+      .startGame .container .manualContainer .manualList {
         list-style-type: square; }
-    .startGame div.container div.player {
+    .startGame .container .player {
       width: 50%;
       height: 70%;
       padding: 20px;
@@ -322,7 +322,7 @@ body {
       align-items: center;
       justify-content: center;
       flex-wrap: wrap; }
-      .startGame div.container div.player input {
+      .startGame .container .player .inputName {
         font-family: 'charlie', Arial, sans-serif;
         background-color: #0f182b;
         color: #48e5f9;
@@ -330,60 +330,60 @@ body {
         border-bottom: 1px solid #48e5f9;
         text-align: center;
         font-size: 30px; }
-        .startGame div.container div.player input::-webkit-input-placeholder {
+        .startGame .container .player .inputName::-webkit-input-placeholder {
           color: gray; }
-        .startGame div.container div.player input:-moz-placeholder {
+        .startGame .container .player .inputName:-moz-placeholder {
           color: gray;
           opacity: 1; }
-        .startGame div.container div.player input::-moz-placeholder {
+        .startGame .container .player .inputName::-moz-placeholder {
           color: gray;
           opacity: 1; }
-        .startGame div.container div.player input:-ms-input-placeholder {
+        .startGame .container .player .inputName:-ms-input-placeholder {
           color: gray; }
-        .startGame div.container div.player input:focus {
+        .startGame .container .player .inputName:focus {
           outline: none;
           border-bottom: 5px solid #48e5f9; }
-          .startGame div.container div.player input:focus::-webkit-input-placeholder {
+          .startGame .container .player .inputName:focus::-webkit-input-placeholder {
             color: transparent; }
-          .startGame div.container div.player input:focus:-moz-placeholder {
+          .startGame .container .player .inputName:focus:-moz-placeholder {
             color: transparent; }
-          .startGame div.container div.player input:focus::-moz-placeholder {
+          .startGame .container .player .inputName:focus::-moz-placeholder {
             color: transparent; }
-          .startGame div.container div.player input:focus:-ms-input-placeholder {
+          .startGame .container .player .inputName:focus:-ms-input-placeholder {
             color: transparent; }
-      .startGame div.container div.player .avatar {
+      .startGame .container .player .avatar {
         font-size: 20px; }
-      .startGame div.container div.player .error {
+      .startGame .container .player .error {
         width: 100%;
         height: 20px;
         color: red;
         text-align: center;
         font-size: 16px; }
-      .startGame div.container div.player div.avatars {
+      .startGame .container .player .avatars {
         max-width: 100%;
         height: 100%; }
-        .startGame div.container div.player div.avatars .avatarsRow {
+        .startGame .container .player .avatars .avatarsRow {
           height: 20%;
           width: 433px; }
-          .startGame div.container div.player div.avatars .avatarsRow div {
+          .startGame .container .player .avatars .avatarsRow div {
             height: 100%;
             width: 20%;
             float: left;
             border: 2px solid transparent; }
-            .startGame div.container div.player div.avatars .avatarsRow div:hover {
+            .startGame .container .player .avatars .avatarsRow div:hover {
               border: 2px solid #48e5f9; }
   .startGame .clear {
     clear: both;
     display: block;
     width: 0;
     height: 0; }
-  .startGame footer {
+  .startGame .footer {
     width: 100%;
     height: 15%;
     display: flex;
     align-items: center;
     justify-content: space-around; }
-    .startGame footer .startButton {
+    .startGame .footer .startButton {
       z-index: 99;
       width: 50%;
       height: 80%;
@@ -397,12 +397,12 @@ body {
       align-items: center;
       justify-content: center;
       background-color: #0f182b; }
-      .startGame footer .startButton:hover {
+      .startGame .footer .startButton:hover {
         background-color: #48e5f9;
         border: 2px solid #48e5f9;
         color: #0f182b;
         cursor: pointer; }
-    .startGame footer .music, .startGame footer .sound {
+    .startGame .footer .music, .startGame .footer .sound {
       font-size: 23px;
       cursor: pointer; }
 
@@ -412,52 +412,52 @@ body {
   color: white;
   font-family: 'charlie', Arial, sans-serif;
   display: none; }
-  .gameOver div.flex {
+  .gameOver .flex {
     height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center; }
-    .gameOver div.flex div.container {
+    .gameOver .flex .container {
       width: 1000px;
       height: 90vh;
       border: 5px solid white;
       border-radius: 40px;
       margin: 0 auto;
       padding: 20px; }
-      .gameOver div.flex div.container header {
+      .gameOver .flex .container .header {
         width: 100%;
         height: 15%;
         display: flex;
         align-items: center;
         justify-content: center; }
-        .gameOver div.flex div.container header div {
+        .gameOver .flex .container .header .gameOverLogo {
           font-size: 50px; }
-      .gameOver div.flex div.container div.scoreTable {
+      .gameOver .flex .container .scoreTable {
         height: 70%;
         width: 50%;
         padding: 20px;
         float: left; }
-        .gameOver div.flex div.container div.scoreTable caption {
-          font-size: 30px;
-          text-align: center; }
-        .gameOver div.flex div.container div.scoreTable .bestResults {
+        .gameOver .flex .container .scoreTable .bestResults {
           height: 90%;
           margin: 0 auto;
           width: 75%;
           vertical-align: middle;
           text-align: center; }
-          .gameOver div.flex div.container div.scoreTable .bestResults th {
+          .gameOver .flex .container .scoreTable .bestResults .bestResultsLogo {
+            font-size: 30px;
+            text-align: center; }
+          .gameOver .flex .container .scoreTable .bestResults th {
             font-size: 150%;
             font-weight: 400;
             border-bottom: 5px solid #48e5f9;
             vertical-align: middle; }
-          .gameOver div.flex div.container div.scoreTable .bestResults td {
+          .gameOver .flex .container .scoreTable .bestResults td {
             border-bottom: 1px solid #48e5f9;
             vertical-align: middle; }
-          .gameOver div.flex div.container div.scoreTable .bestResults .addedRow {
+          .gameOver .flex .container .scoreTable .bestResults .addedRow {
             font-size: 130%; }
-      .gameOver div.flex div.container div.scorePlayer {
+      .gameOver .flex .container .scorePlayer {
         height: 70%;
         width: 50%;
         padding: 20px;
@@ -466,29 +466,29 @@ body {
         align-content: center;
         justify-content: center;
         flex-wrap: wrap; }
-        .gameOver div.flex div.container div.scorePlayer div {
+        .gameOver .flex .container .scorePlayer div {
           margin: 0 auto;
           height: 20%;
           width: 20%; }
-        .gameOver div.flex div.container div.scorePlayer p.playerLevelInfo,
-        .gameOver div.flex div.container div.scorePlayer p.playerScoreInfo {
+        .gameOver .flex .container .scorePlayer .playerLevelInfo,
+        .gameOver .flex .container .scorePlayer .playerScoreInfo {
           font-size: 30px;
           text-align: center; }
-          .gameOver div.flex div.container div.scorePlayer p.playerLevelInfo span.playerInfo,
-          .gameOver div.flex div.container div.scorePlayer p.playerScoreInfo span.playerInfo {
+          .gameOver .flex .container .scorePlayer .playerLevelInfo .playerInfo,
+          .gameOver .flex .container .scorePlayer .playerScoreInfo .playerInfo {
             font-size: 40px;
             color: #48e5f9; }
-      .gameOver div.flex div.container .clear {
+      .gameOver .flex .container .clear {
         clear: both;
         display: block; }
-      .gameOver div.flex div.container footer {
+      .gameOver .flex .container .footer {
         width: 100%;
         height: 15%;
         display: flex;
         align-items: center;
         justify-content: center; }
-        .gameOver div.flex div.container footer .mainScreenButton,
-        .gameOver div.flex div.container footer .playAgainButton {
+        .gameOver .flex .container .footer .mainScreenButton,
+        .gameOver .flex .container .footer .playAgainButton {
           width: 45%;
           height: 80%;
           margin: 0 auto;
@@ -502,8 +502,8 @@ body {
           display: flex;
           align-items: center;
           justify-content: center; }
-          .gameOver div.flex div.container footer .mainScreenButton:hover,
-          .gameOver div.flex div.container footer .playAgainButton:hover {
+          .gameOver .flex .container .footer .mainScreenButton:hover,
+          .gameOver .flex .container .footer .playAgainButton:hover {
             background-color: #48e5f9;
             border: 2px solid #48e5f9;
             color: #0f182b;

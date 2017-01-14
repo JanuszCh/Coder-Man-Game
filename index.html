@@ -15,13 +15,13 @@
 
 <body>
 
-    <section class="startGame">
+    <section id="startGame" class="startGame">
         <div class="container">
-            <header>
-                <div>CODER-MAN GAME</div>
+            <header class="header">
+                <div class="logo">CODER-MAN GAME</div>
             </header>
-            <div class="manual">
-                <ul>
+            <div class="manualContainer">
+                <ul class="manualList">
                     <li>Use arrow keys to move inside the maze.</li>
                     <li>Collect all the items to go to the next Level.</li>
                     <li>Avoid the walls! The collision with the wall ends the game!</li>
@@ -32,9 +32,9 @@
             </div>
             <div class="player">
                 <form action="index.html" method="get">
-                    <input type="text" name="name" value="" placeholder="Your Name" id="playerName">
+                    <input class="inputName" type="text" name="name" value="" placeholder="Your Name" id="playerName">
                 </form>
-                <p class="error"></p>
+                <p id="validationError" class="validationError"></p>
                 <div class="clear"></div>
                 <p class="avatar">Choose your avatar:</p>
                 <div class="avatars">
@@ -69,17 +69,17 @@
                 </div>
             </div>
             <div class="clear"></div>
-            <footer>
-                <p class="music">MUSIC: <i class="icon-volume"></i></p>
-                <button class="startButton">
+            <footer class="footer">
+                <p id="music" class="music">MUSIC: <i class="icon-volume"></i></p>
+                <button id="startButton" class="startButton">
                     <span>START</span>
                 </button>
-                <p class="sound">SOUND: <i class="icon-volume"></i></p>
+                <p id="sound" class="sound">SOUND: <i class="icon-volume"></i></p>
             </footer>
         </div>
     </section>
 
-    <section class="screnGameBoard">
+    <section id="screenGameBoard" class="screenGameBoard">
         <div class="flex">
             <div class="score">
                 SCORE
@@ -87,7 +87,7 @@
             </div>
             <section class="containerCube">
                 <div id="cube" class="show-front">
-                    <figure class="front board" id="showFront">
+                    <figure id="showFront" class="front board">
                         <div class="wall"></div>
                         <div class="wall"></div>
                         <div class="wall"></div>
@@ -839,38 +839,38 @@
         </div>
     </section>
 
-    <section class="gameOver">
+    <section id="gameOver" class="gameOver">
         <div class="flex">
             <div class="container">
-                <header>
-                    <div class="">
+                <header class="header">
+                    <div class="gameOverLogo">
                         GAME OVER!
                     </div>
                 </header>
                 <div class="scoreTable">
-                    <table class="bestResults">
-                        <caption>TOP 10</caption>
+                    <table id="bestResults" class="bestResults">
+                        <caption class="bestResultsLogo">TOP 10</caption>
                         <tr>
-                            <th>
+                            <th class="tableHeader">
                                 Name
                             </th>
-                            <th>
+                            <th class="tableHeader">
                                 Score
                             </th>
                         </tr>
                     </table>
                 </div>
                 <div class="scorePlayer">
-                    <div></div>
-                    <p class="playerScoreInfo"></p>
-                    <p class="playerLevelInfo"></p>
+                    <div id="playerAvatar"></div>
+                    <p id="playerScoreInfo" class="playerScoreInfo"></p>
+                    <p id="playerLevelInfo" class="playerLevelInfo"></p>
                 </div>
                 <div class="clear"></div>
-                <footer>
-                    <button class="mainScreenButton">
-                    <span>MAIN SCREEN</span>
+                <footer class="footer">
+                    <button id="mainScreenButton" class="mainScreenButton">
+                    MAIN SCREEN
                 </button>
-                    <button class="playAgainButton">
+                    <button id="playAgainButton" class="playAgainButton">
                     PLAY AGAIN
                 </button>
                 </footer>
