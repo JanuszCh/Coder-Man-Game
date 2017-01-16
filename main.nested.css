@@ -225,7 +225,12 @@ body {
   background-color: #0f182b; }
   body .screenGameBoard {
     height: 100vh;
-    display: none; }
+    display: none;
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
     body .screenGameBoard .flex {
       height: 100vh;
       width: 100%;
@@ -285,7 +290,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'charlie', Arial, sans-serif; }
+  font-family: 'charlie', Arial, sans-serif;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
   .startGame .container {
     width: 1000px;
     height: 90vh;
@@ -353,7 +363,7 @@ body {
             color: transparent; }
       .startGame .container .player .avatar {
         font-size: 20px; }
-      .startGame .container .player .error {
+      .startGame .container .player .validationError {
         width: 100%;
         height: 20px;
         color: red;
@@ -364,7 +374,8 @@ body {
         height: 100%; }
         .startGame .container .player .avatars .avatarsRow {
           height: 20%;
-          width: 433px; }
+          width: 433px;
+          cursor: pointer; }
           .startGame .container .player .avatars .avatarsRow div {
             height: 100%;
             width: 20%;
@@ -402,7 +413,8 @@ body {
         border: 2px solid #48e5f9;
         color: #0f182b;
         cursor: pointer; }
-    .startGame .footer .music, .startGame .footer .sound {
+    .startGame .footer .music,
+    .startGame .footer .sound {
       font-size: 23px;
       cursor: pointer; }
 
@@ -411,7 +423,12 @@ body {
   height: 100vh;
   color: white;
   font-family: 'charlie', Arial, sans-serif;
-  display: none; }
+  display: none;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
   .gameOver .flex {
     height: 100vh;
     width: 100%;
@@ -447,12 +464,12 @@ body {
           .gameOver .flex .container .scoreTable .bestResults .bestResultsLogo {
             font-size: 30px;
             text-align: center; }
-          .gameOver .flex .container .scoreTable .bestResults th {
+          .gameOver .flex .container .scoreTable .bestResults .tableHeader {
             font-size: 150%;
             font-weight: 400;
             border-bottom: 5px solid #48e5f9;
             vertical-align: middle; }
-          .gameOver .flex .container .scoreTable .bestResults td {
+          .gameOver .flex .container .scoreTable .bestResults .tableData {
             border-bottom: 1px solid #48e5f9;
             vertical-align: middle; }
           .gameOver .flex .container .scoreTable .bestResults .addedRow {

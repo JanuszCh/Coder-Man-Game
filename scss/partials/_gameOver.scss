@@ -6,6 +6,11 @@
     color: white;
     font-family: 'charlie', Arial, sans-serif;
     display: none;
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     .flex {
         height: 100vh;

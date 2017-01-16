@@ -6,6 +6,11 @@ body {
     .screenGameBoard {
         height: 100vh;
         display: none;
+        cursor: default;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
 
         .flex {
             height: 100vh;
@@ -65,6 +70,7 @@ body {
                 background-size: 35px;
                 background-position: center;
             }
+
             .diamond {
                 background-image: url('images/diamond.png');
                 background-repeat: no-repeat;
