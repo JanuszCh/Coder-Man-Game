@@ -3,6 +3,10 @@
 ### Inspiration
 Probably everyone knows the legendary Pac-Man game. Coder-Man is a simple variation Pac-Man.
 
+### Information
+Coder-Man Game was my final project on Become Front-End Developer bootcamp in CodersLab programming school.
+I have used object-oriented programming and functional programming, to learn how it works.
+
 ### Features
 * Twenty avatars to choose
 * Six different mazes
